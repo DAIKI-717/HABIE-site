@@ -44,7 +44,10 @@
     .btn-primary:hover{filter:brightness(0.92)}
     .btn-secondary{background:#fff;color:var(--ink);border-color:#d0d5dd}
     .btn-secondary:hover{border-color:var(--ink)}
-    .shot{aspect-ratio:4/3; border-radius:18px; overflow:hidden; position:relative; box-shadow:0 10px 30px rgba(0,0,0,.08); background: radial-gradient(1200px 600px at -10% 0%, rgba(255,138,52,.12), transparent 60%), radial-gradient(800px 400px at 110% 60%, rgba(47,191,113,.12), transparent 55%), #f8faf9;}
+    .shot{aspect-ratio:4/3;border-radius:18px;overflow:hidden;position:relative;box-shadow:0 10px 30px rgba(0,0,0,.08);
+      background:radial-gradient(1200px 600px at -10% 0%, rgba(255,138,52,.12), transparent 60%),
+                 radial-gradient(800px 400px at 110% 60%, rgba(47,191,113,.12), transparent 55%),
+                 #f8faf9;}
     .shot img{width:100%;height:100%;object-fit:cover;display:block}
     .badge{position:absolute;left:14px;bottom:14px;background:#fff;border:1px solid #e6e6e6;border-radius:12px;padding:8px 12px;font-size:12px;display:flex;gap:8px;align-items:center;box-shadow:0 6px 16px rgba(0,0,0,.08)}
     .dot{width:10px;height:10px;border-radius:50%;background:var(--green)}
@@ -125,7 +128,7 @@
     </div>
   </section>
 
-  <!-- 1週間プラン セクション -->
+  <!-- 1週間プラン -->
   <section id="plans" class="wk-wrap" aria-label="1週間プラン">
     <h2 class="wk-title">1週間プラン</h2>
     <div class="wk-grid">
@@ -168,46 +171,134 @@
     </div>
   </section>
 
-  <!-- 月額プラン セクション -->
-<section id="monthly-plans" style="max-width:1200px;margin:0 auto;padding:64px 24px;">
-  <h2 style="text-align:center;font-size:32px;margin-bottom:40px;font-weight:800;">
-    月額プラン
-  </h2>
+  <!-- 月額プラン -->
+  <section id="monthly-plans" style="max-width:1200px;margin:0 auto;padding:64px 24px;">
+    <h2 style="text-align:center;font-size:32px;margin-bottom:40px;font-weight:800;">月額プラン</h2>
 
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
-    <!-- ベーシック -->
-    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:24px;text-align:center;background:#fff;">
-      <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">🌱 ベーシック</h3>
-      <p style="font-size:28px;font-weight:800;margin:8px 0;">¥9,800 / 月</p>
-      <ul style="text-align:left;line-height:1.8;font-size:15px;list-style:none;padding:0;">
-        <li>✔ 食事フィードバック：毎日</li>
-        <li>✔ 生活習慣サポート：週次＋改善プラン</li>
-        <li>✔ LINE相談：無制限（24h以内返信）</li>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+      <!-- ベーシック -->
+      <div style="border:1px solid #e6e6e6;border-radius:12px;padding:24px;text-align:center;background:#fff;">
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">🌱 ベーシック</h3>
+        <p style="font-size:28px;font-weight:800;margin:8px 0;">¥9,800 / 月</p>
+        <ul style="text-align:left;line-height:1.8;font-size:15px;list-style:none;padding:0;">
+          <li>✔ 食事フィードバック：毎日</li>
+          <li>✔ 生活習慣サポート：週次＋改善プラン</li>
+          <li>✔ LINE相談：無制限（24h以内返信）</li>
+        </ul>
+        <a href="https://lin.ee/Grn0zNX" target="_blank"
+           style="display:inline-block;margin-top:16px;padding:12px 20px;background:#2fbf71;color:#fff;font-weight:700;border-radius:8px;text-decoration:none;">
+          このプランに申し込む
+        </a>
+      </div>
+
+      <!-- プレミアム（3か月まとめ） -->
+      <div style="border:2px solid #2fbf71;border-radius:12px;padding:24px;text-align:center;background:#f8fdfb;box-shadow:0 6px 20px rgba(0,0,0,.08);">
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">💎 プレミアム</h3>
+        <p style="font-size:28px;font-weight:800;margin:8px 0;">¥29,800 / 3か月</p>
+        <p style="color:#2fbf71;font-weight:700;margin-bottom:16px;">おすすめ！</p>
+        <ul style="text-align:left;line-height:1.8;font-size:15px;list-style:none;padding:0;">
+          <li>✔ 食事フィードバック：毎日</li>
+          <li>✔ 生活習慣サポート：毎週レビュー＋改善プラン</li>
+          <li>✔ LINE相談：無制限（優先対応）</li>
+          <li>✔ まとめレポート＆継続アドバイス</li>
+        </ul>
+        <a href="https://lin.ee/Grn0zNX" target="_blank"
+           style="display:inline-block;margin-top:16px;padding:12px 20px;background:#2fbf71;color:#fff;font-weight:700;border-radius:8px;text-decoration:none;">
+          このプランに申し込む
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 完全オーダー（選択式｜加算式表示） -->
+<section id="custom-order" style="max-width:1200px;margin:0 auto;padding:64px 24px;">
+  <h2 style="text-align:center;font-size:32px;font-weight:800;margin-bottom:20px;">完全オーダープラン</h2>
+  <p style="text-align:center;color:#667085;margin:0 0 36px;">
+    期間・濃さ・サポート時間・献立まで、あなたに合わせてカスタマイズ。<br>
+    基本料金に<strong>「＋◯円〜」で加算</strong>して合計を作る方式です（単体利用の<span style="white-space:nowrap">参考価格</span>も併記）。
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+
+    <!-- ① 期間 -->
+    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff;">
+      <h3 style="font-size:18px;margin:0 0 6px;">① 期間</h3>
+      <ul style="margin:0;padding-left:18px;line-height:1.8;">
+        <li>1週間（お試し）… ベース料金設定</li>
+        <li>1か月（習慣化）… ベース料金設定</li>
+        <li>3か月（本気改善）… ベース料金設定</li>
       </ul>
-      <a href="https://lin.ee/Grn0zNX" target="_blank"
-         style="display:inline-block;margin-top:16px;padding:12px 20px;background:#2fbf71;color:#fff;font-weight:700;border-radius:8px;text-decoration:none;">
-        このプランに申し込む
-      </a>
+      <p style="margin:8px 0 0;color:#667085;font-size:13px;">
+        例）1か月ベース：<strong>¥9,800〜/月</strong>（キャンペーン時は変更あり）
+      </p>
     </div>
 
-    <!-- プレミアム（3か月まとめ） -->
-    <div style="border:2px solid #2fbf71;border-radius:12px;padding:24px;text-align:center;background:#f8fdfb;box-shadow:0 6px 20px rgba(0,0,0,.08);">
-      <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">💎 プレミアム</h3>
-      <p style="font-size:28px;font-weight:800;margin:8px 0;">¥29,800 / 3か月</p>
-      <p style="color:#2fbf71;font-weight:700;margin-bottom:16px;">おすすめ！</p>
-      <ul style="text-align:left;line-height:1.8;font-size:15px;list-style:none;padding:0;">
-        <li>✔ 食事フィードバック：毎日</li>
-        <li>✔ 生活習慣サポート：毎週レビュー＋改善プラン</li>
-        <li>✔ LINE相談：無制限（優先対応）</li>
-        <li>✔ まとめレポート＆継続アドバイス</li>
+    <!-- ② フィードバック数 -->
+    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff;">
+      <h3 style="font-size:18px;margin:0 0 6px;">② フィードバック数</h3>
+      <ul style="margin:0;padding-left:18px;line-height:1.8;">
+        <li>1日1回（基本）… <strong>＋¥0</strong></li>
+        <li>1日2回 … <strong>＋¥3,000〜/月</strong>（例：合計 ¥12,800〜）</li>
+        <li>毎食（3回）… <strong>＋¥6,000〜/月</strong>（例：合計 ¥15,800〜）</li>
       </ul>
-      <a href="https://lin.ee/Grn0zNX" target="_blank"
-         style="display:inline-block;margin-top:16px;padding:12px 20px;background:#2fbf71;color:#fff;font-weight:700;border-radius:8px;text-decoration:none;">
-        このプランに申し込む
-      </a>
     </div>
+
+    <!-- ③ LINE応答時間 -->
+    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff;">
+      <h3 style="font-size:18px;margin:0 0 6px;">③ LINE応答時間（サポート時間）</h3>
+      <ul style="margin:0;padding-left:18px;line-height:1.8;">
+        <li>平日 10:00〜17:00 … <strong>＋¥0</strong></li>
+        <li>毎日 10:00〜20:00 … <strong>＋¥5,000〜/月</strong>（例：合計 ¥14,800〜）</li>
+        <li>夜間対応あり … <strong>＋¥8,000〜/月</strong></li>
+      </ul>
+      <p style="margin:8px 0 0;color:#667085;font-size:13px;">
+        ※ 応答はSLAに準拠（通常48h以内／優先は12h以内）
+      </p>
+    </div>
+
+    <!-- ④ 献立表の有無 -->
+    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff;">
+      <h3 style="font-size:18px;margin:0 0 6px;">④ 献立表の有無</h3>
+      <ul style="margin:0;padding-left:18px;line-height:1.8;">
+        <li>なし（フィードバックのみ）… <strong>＋¥0</strong></li>
+        <li>3日分（ミニ）… <strong>＋¥2,000〜/回</strong>（単体参考）</li>
+        <li>7日分（フル）… <strong>＋¥4,000〜/回</strong>（単体参考）</li>
+      </ul>
+    </div>
+
+    <!-- ⑤ 献立の提供方法 -->
+    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff;">
+      <h3 style="font-size:18px;margin:0 0 6px;">⑤ 献立の提供方法</h3>
+      <ul style="margin:0;padding-left:18px;line-height:1.8;">
+        <li>1回だけ（3or7日分）… <strong>＋¥0</strong>（④の作成費のみ）</li>
+        <li>毎週更新（週ごと配布）… <strong>＋¥2,000〜/月</strong></li>
+      </ul>
+    </div>
+
+    <!-- ⑥ 相談内容の幅 -->
+    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff;">
+      <h3 style="font-size:18px;margin:0 0 6px;">⑥ 相談内容の幅</h3>
+      <ul style="margin:0;padding-left:18px;line-height:1.8;">
+        <li>食事だけ … <strong>＋¥0</strong></li>
+        <li>食事＋生活習慣 … <strong>＋¥1,500〜/月</strong></li>
+        <li>食事＋生活習慣＋心理 … <strong>＋¥3,500〜/月</strong></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:24px;">
+    <a href="https://lin.ee/Grn0zNX" target="_blank"
+       style="display:inline-block;padding:14px 22px;background:#2fbf71;color:#fff;font-weight:800;border-radius:10px;text-decoration:none;">
+      LINEでオーダー相談する
+    </a>
+    <p style="color:#667085;font-size:13px;margin:10px 0 0;">
+      ※ 表示は税込の目安。実際の合計は選択内容で変動します。<br>
+      例：ベース¥9,800 + 毎食¥6,000 + 毎日対応¥5,000 = <strong>合計 ¥20,800/月〜</strong>
+    </p>
   </div>
 </section>
+
 
   <!-- FAQ -->
   <section id="faq" class="container" aria-label="よくある質問">
