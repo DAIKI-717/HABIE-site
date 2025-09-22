@@ -80,6 +80,10 @@
       h1{font-size:34px}
       .sub{font-size:16px}
     }
+
+    /* small utils */
+    .muted{color:#667085}
+    .card{border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff}
   </style>
 </head>
 <body>
@@ -113,15 +117,15 @@
   <section id="features" class="container" aria-label="特徴">
     <h2 class="section-title">Habieの特徴</h2>
     <div style="display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
-      <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;background:#fff;">
+      <div class="card">
         <h3>写真を送るだけ</h3>
         <p>食事や活動の写真を送信すると、AIが要点を整理してフィードバック。新しいアプリは不要です。</p>
       </div>
-      <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;background:#fff;">
+      <div class="card">
         <h3>小さな一歩を可視化</h3>
         <p>「水を1杯多く」「一駅歩く」など、続けられる指標で習慣化を後押しします。</p>
       </div>
-      <div style="border:1px solid #e5e7eb;border-radius:12px;padding:20px;background:#fff;">
+      <div class="card">
         <h3>専門家の伴走（任意）</h3>
         <p>管理栄養の基礎知識をもとに、必要に応じて人による助言もセット可能です。</p>
       </div>
@@ -177,7 +181,7 @@
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
       <!-- ベーシック -->
-      <div style="border:1px solid #e6e6e6;border-radius:12px;padding:24px;text-align:center;background:#fff;">
+      <div class="card" style="text-align:center;">
         <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">🌱 ベーシック</h3>
         <p style="font-size:28px;font-weight:800;margin:8px 0;">¥9,800 / 月</p>
         <ul style="text-align:left;line-height:1.8;font-size:15px;list-style:none;padding:0;">
@@ -192,7 +196,7 @@
       </div>
 
       <!-- プレミアム（3か月まとめ） -->
-      <div style="border:2px solid #2fbf71;border-radius:12px;padding:24px;text-align:center;background:#f8fdfb;box-shadow:0 6px 20px rgba(0,0,0,.08);">
+      <div class="card" style="text-align:center;border:2px solid #2fbf71;background:#f8fdfb;box-shadow:0 6px 20px rgba(0,0,0,.08);">
         <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">💎 プレミアム</h3>
         <p style="font-size:28px;font-weight:800;margin:8px 0;">¥29,800 / 3か月</p>
         <p style="color:#2fbf71;font-weight:700;margin-bottom:16px;">おすすめ！</p>
@@ -211,94 +215,83 @@
   </section>
 
   <!-- 完全オーダー（選択式｜加算式表示） -->
-<section id="custom-order" style="max-width:1200px;margin:0 auto;padding:64px 24px;">
-  <h2 style="text-align:center;font-size:32px;font-weight:800;margin-bottom:20px;">完全オーダープラン</h2>
-  <p style="text-align:center;color:#667085;margin:0 0 36px;">
-    期間・濃さ・サポート時間・献立まで、あなたに合わせてカスタマイズ。<br>
-    基本料金に<strong>「＋◯円〜」で加算</strong>して合計を作る方式です（単体利用の<span style="white-space:nowrap">参考価格</span>も併記）。
-  </p>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
-
-    <!-- ① 期間 -->
-    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff;">
-      <h3 style="font-size:18px;margin:0 0 6px;">① 期間</h3>
-      <ul style="margin:0;padding-left:18px;line-height:1.8;">
-        <li>1週間（お試し）… ベース料金設定</li>
-        <li>1か月（習慣化）… ベース料金設定</li>
-        <li>3か月（本気改善）… ベース料金設定</li>
-      </ul>
-      <p style="margin:8px 0 0;color:#667085;font-size:13px;">
-        例）1か月ベース：<strong>¥9,800〜/月</strong>（キャンペーン時は変更あり）
-      </p>
-    </div>
-
-    <!-- ② フィードバック数 -->
-    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff;">
-      <h3 style="font-size:18px;margin:0 0 6px;">② フィードバック数</h3>
-      <ul style="margin:0;padding-left:18px;line-height:1.8;">
-        <li>1日1回（基本）… <strong>＋¥0</strong></li>
-        <li>1日2回 … <strong>＋¥3,000〜/月</strong>（例：合計 ¥12,800〜）</li>
-        <li>毎食（3回）… <strong>＋¥6,000〜/月</strong>（例：合計 ¥15,800〜）</li>
-      </ul>
-    </div>
-
-    <!-- ③ LINE応答時間 -->
-    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff;">
-      <h3 style="font-size:18px;margin:0 0 6px;">③ LINE応答時間（サポート時間）</h3>
-      <ul style="margin:0;padding-left:18px;line-height:1.8;">
-        <li>平日 10:00〜17:00 … <strong>＋¥0</strong></li>
-        <li>毎日 10:00〜20:00 … <strong>＋¥5,000〜/月</strong>（例：合計 ¥14,800〜）</li>
-        <li>夜間対応あり … <strong>＋¥8,000〜/月</strong></li>
-      </ul>
-      <p style="margin:8px 0 0;color:#667085;font-size:13px;">
-        ※ 応答はSLAに準拠（通常48h以内／優先は12h以内）
-      </p>
-    </div>
-
-    <!-- ④ 献立表の有無 -->
-    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff;">
-      <h3 style="font-size:18px;margin:0 0 6px;">④ 献立表の有無</h3>
-      <ul style="margin:0;padding-left:18px;line-height:1.8;">
-        <li>なし（フィードバックのみ）… <strong>＋¥0</strong></li>
-        <li>3日分（ミニ）… <strong>＋¥2,000〜/回</strong>（単体参考）</li>
-        <li>7日分（フル）… <strong>＋¥4,000〜/回</strong>（単体参考）</li>
-      </ul>
-    </div>
-
-    <!-- ⑤ 献立の提供方法 -->
-    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff;">
-      <h3 style="font-size:18px;margin:0 0 6px;">⑤ 献立の提供方法</h3>
-      <ul style="margin:0;padding-left:18px;line-height:1.8;">
-        <li>1回だけ（3or7日分）… <strong>＋¥0</strong>（④の作成費のみ）</li>
-        <li>毎週更新（週ごと配布）… <strong>＋¥2,000〜/月</strong></li>
-      </ul>
-    </div>
-
-    <!-- ⑥ 相談内容の幅 -->
-    <div style="border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff;">
-      <h3 style="font-size:18px;margin:0 0 6px;">⑥ 相談内容の幅</h3>
-      <ul style="margin:0;padding-left:18px;line-height:1.8;">
-        <li>食事だけ … <strong>＋¥0</strong></li>
-        <li>食事＋生活習慣 … <strong>＋¥1,500〜/月</strong></li>
-        <li>食事＋生活習慣＋心理 … <strong>＋¥3,500〜/月</strong></li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div style="text-align:center;margin-top:24px;">
-    <a href="https://lin.ee/Grn0zNX" target="_blank"
-       style="display:inline-block;padding:14px 22px;background:#2fbf71;color:#fff;font-weight:800;border-radius:10px;text-decoration:none;">
-      LINEでオーダー相談する
-    </a>
-    <p style="color:#667085;font-size:13px;margin:10px 0 0;">
-      ※ 表示は税込の目安。実際の合計は選択内容で変動します。<br>
-      例：ベース¥9,800 + 毎食¥6,000 + 毎日対応¥5,000 = <strong>合計 ¥20,800/月〜</strong>
+  <section id="custom-order" style="max-width:1200px;margin:0 auto;padding:64px 24px;">
+    <h2 style="text-align:center;font-size:32px;font-weight:800;margin-bottom:20px;">完全オーダープラン</h2>
+    <p class="muted" style="text-align:center;margin:0 0 36px;">
+      期間・濃さ・サポート時間・献立まで、あなたに合わせてカスタマイズ。<br>
+      基本料金に<strong>「＋◯円〜」で加算</strong>して合計を作る方式です（単体利用の<span style="white-space:nowrap">参考価格</span>も併記）。
     </p>
-  </div>
-</section>
 
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+      <div class="card">
+        <h3 style="font-size:18px;margin:0 0 6px;">① 期間</h3>
+        <ul style="margin:0;padding-left:18px;line-height:1.8;">
+          <li>1週間（お試し）… ベース料金設定</li>
+          <li>1か月（習慣化）… ベース料金設定</li>
+          <li>3か月（本気改善）… ベース料金設定</li>
+        </ul>
+        <p class="muted" style="margin:8px 0 0;font-size:13px;">
+          例）1か月ベース：<strong>¥9,800〜/月</strong>（キャンペーン時は変更あり）
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:18px;margin:0 0 6px;">② フィードバック数</h3>
+        <ul style="margin:0;padding-left:18px;line-height:1.8;">
+          <li>1日1回（基本）… <strong>＋¥0</strong></li>
+          <li>1日2回 … <strong>＋¥3,000〜/月</strong>（例：合計 ¥12,800〜）</li>
+          <li>毎食（3回）… <strong>＋¥6,000〜/月</strong>（例：合計 ¥15,800〜）</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:18px;margin:0 0 6px;">③ LINE応答時間（サポート時間）</h3>
+        <ul style="margin:0;padding-left:18px;line-height:1.8;">
+          <li>平日 10:00〜17:00 … <strong>＋¥0</strong></li>
+          <li>毎日 10:00〜20:00 … <strong>＋¥5,000〜/月</strong>（例：合計 ¥14,800〜）</li>
+          <li>夜間対応あり … <strong>＋¥8,000〜/月</strong></li>
+        </ul>
+        <p class="muted" style="margin:8px 0 0;font-size:13px;">※ 応答はSLAに準拠（通常48h以内／優先は12h以内）</p>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:18px;margin:0 0 6px;">④ 献立表の有無</h3>
+        <ul style="margin:0;padding-left:18px;line-height:1.8;">
+          <li>なし（フィードバックのみ）… <strong>＋¥0</strong></li>
+          <li>3日分（ミニ）… <strong>＋¥2,000〜/回</strong>（単体参考）</li>
+          <li>7日分（フル）… <strong>＋¥4,000〜/回</strong>（単体参考）</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:18px;margin:0 0 6px;">⑤ 献立の提供方法</h3>
+        <ul style="margin:0;padding-left:18px;line-height:1.8;">
+          <li>1回だけ（3or7日分）… <strong>＋¥0</strong>（④の作成費のみ）</li>
+          <li>毎週更新（週ごと配布）… <strong>＋¥2,000〜/月</strong></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="font-size:18px;margin:0 0 6px;">⑥ 相談内容の幅</h3>
+        <ul style="margin:0;padding-left:18px;line-height:1.8;">
+          <li>食事だけ … <strong>＋¥0</strong></li>
+          <li>食事＋生活習慣 … <strong>＋¥1,500〜/月</strong></li>
+          <li>食事＋生活習慣＋心理 … <strong>＋¥3,500〜/月</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:24px;">
+      <a href="https://lin.ee/Grn0zNX" target="_blank"
+         style="display:inline-block;padding:14px 22px;background:#2fbf71;color:#fff;font-weight:800;border-radius:10px;text-decoration:none;">
+        LINEでオーダー相談する
+      </a>
+      <p class="muted" style="font-size:13px;margin:10px 0 0;">
+        ※ 表示は税込の目安。実際の合計は選択内容で変動します。<br>
+        例：ベース¥9,800 + 毎食¥6,000 + 毎日対応¥5,000 = <strong>合計 ¥20,800/月〜</strong>
+      </p>
+    </div>
+  </section>
 
   <!-- FAQ -->
   <section id="faq" class="container" aria-label="よくある質問">
@@ -317,14 +310,77 @@
     </details>
   </section>
 
+  <!-- 運営者情報 -->
+  <section id="contact" class="container" aria-label="運営者情報">
+    <h2 class="section-title">運営者情報</h2>
+    <p>運営：Habie運営事務局</p>
+    <p>お問い合わせ：<a href="mailto:habie.goolife@gmail.com">habie.goolife@gmail.com</a></p>
+    <p class="muted" style="font-size:14px;">※ 審査・お問い合わせ用に記載しています。必要に応じて所在地・代表者名を追記できます。</p>
+  </section>
+
+  <!-- プライバシーポリシー（簡易版） -->
+  <section id="privacy" class="container" aria-label="プライバシーポリシー">
+    <h2 class="section-title">プライバシーポリシー</h2>
+    <div class="card" style="line-height:1.9;">
+      <p>Habie運営事務局（以下「当事務局」）は、当サービス（以下「本サービス」）の提供にあたり、利用者の個人情報を以下の方針で適切に取り扱います。</p>
+
+      <h3>1. 取得する情報</h3>
+      <ul>
+        <li>LINEで送信される画像・テキスト・スタンプ等のメッセージ内容</li>
+        <li>ニックネーム、LINEユーザーID等の識別子</li>
+        <li>任意にご提供いただく情報（メールアドレス、アンケート回答等）</li>
+      </ul>
+
+      <h3>2. 利用目的</h3>
+      <ul>
+        <li>食事・生活習慣に関する分析、フィードバックの提供</li>
+        <li>ご質問対応、各種ご連絡、重要なお知らせの配信</li>
+        <li>サービス改善・品質向上のための分析（統計的に処理したデータの作成を含む）</li>
+        <li>不正利用の防止、トラブル対応</li>
+      </ul>
+
+      <h3>3. 共同利用・第三者提供</h3>
+      <p>法令に基づく場合を除き、本人の同意なく第三者に提供しません。業務委託先（例：LINE、決済事業者、データ保管事業者）には、目的達成に必要な範囲で委託し、適切に管理・監督します。</p>
+
+      <h3>4. 安全管理</h3>
+      <p>取得した情報は、アクセス制限・暗号化等の安全管理措置を講じ、漏えい・滅失・毀損の防止に努めます。</p>
+
+      <h3>5. 保存期間</h3>
+      <p>利用目的の達成に必要な期間保存し、不要となった情報は適切な方法で削除します。</p>
+
+      <h3>6. ユーザーの権利</h3>
+      <p>保有個人データの開示・訂正・利用停止・削除等をご希望の場合は、下記お問い合わせ先までご連絡ください。法令に基づき適切に対応します。</p>
+
+      <h3>7. 外部サービスの利用</h3>
+      <p>本サービスは、LINEプラットフォームおよび決済事業者等の外部サービスを利用します。各事業者のポリシーもあわせてご確認ください。</p>
+
+      <h3>8. クッキー等の使用</h3>
+      <p>本サイトでは閲覧分析や体験向上のためクッキー等を使用する場合があります。ブラウザ設定により無効化できます。</p>
+
+      <h3>9. 改定</h3>
+      <p>本ポリシーは、法令改正やサービス変更に応じて改定することがあります。重要な変更は本サイトでお知らせします。</p>
+
+      <h3>10. お問い合わせ窓口</h3>
+      <p>Habie運営事務局<br>
+        メール：<a href="mailto:habie.goolife@gmail.com">habie.goolife@gmail.com</a></p>
+
+      <p class="muted" style="font-size:14px;margin-top:12px;">施行日：2025-09-22（初版）</p>
+    </div>
+  </section>
+
   <footer class="container" aria-label="フッター">
     <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-      <div>© <span id="y"></span> Habie</div>
-      <div style="display:flex;gap:16px">
+      <div>
+        © <span id="y"></span> Habie ｜ 運営：Habie運営事務局 ｜ お問い合わせ：
+        <a href="mailto:habie.goolife@gmail.com">habie.goolife@gmail.com</a>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
         <a href="#features">特徴</a>
         <a href="#plans">プラン</a>
         <a href="#faq">FAQ</a>
-        <a href="https://lin.ee/Grn0zNX" target="_blank" rel="noopener">お問い合わせ（LINE）</a>
+        <a href="#privacy">プライバシーポリシー</a>
+        <a href="#contact">運営者情報</a>
+        <a href="https://lin.ee/Grn0zNX" target="_blank" rel="noopener">LINEでお問い合わせ</a>
       </div>
     </div>
   </footer>
