@@ -67,13 +67,15 @@
     .wk-list{text-align:left;line-height:1.8;font-size:15px;list-style:none;padding:0;margin:16px 0 0}
     .wk-cta{display:inline-block;margin-top:16px;padding:12px 20px;background:var(--green);color:#fff;font-weight:700;border-radius:8px;text-decoration:none}
 
-    /* FAQ */
+    /* FAQ, Legal cards */
     details{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}
     summary{font-weight:700;cursor:pointer}
     details+details{margin-top:12px}
+    .card{border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff}
+    .muted{color:#667085}
 
     /* Footer */
-    footer{padding:32px 0;border-top:1px solid var(--line);color:#475467}
+    footer{padding:32px 0;border-top:1px solid #e5e7eb;color:#475467}
 
     /* ---- ハンバーガーメニュー ---- */
     .hamburger{display:none; position:relative; width:36px; height:28px; border:0; background:transparent; padding:0; cursor:pointer}
@@ -98,13 +100,10 @@
     .mobile-list a{display:block; padding:12px 8px; font-weight:700; border-radius:10px}
     .mobile-list a:hover{background:#f6f7f8}
     .mobile-open #mobileNav{transform:translateX(0)}
-    .overlay{
-      position:fixed; inset:0; background:rgba(0,0,0,.28); z-index:90;
-      opacity:0; transition:opacity .2s ease; pointer-events:none;
-    }
+    .overlay{position:fixed; inset:0; background:rgba(0,0,0,.28); z-index:90; opacity:0; transition:opacity .2s ease; pointer-events:none}
     .mobile-open #overlay{opacity:1; pointer-events:auto}
 
-    /* ===== Mobile (≤768px) 追加の見やすさ調整 ===== */
+    /* ===== Mobile 調整 ===== */
     @media (max-width:768px){
       .container{padding:0 16px}
       .site-header{padding:12px 0; gap:10px}
@@ -112,7 +111,6 @@
       .hero{grid-template-columns:1fr; gap:18px; padding:24px 0 36px}
       h1{font-size:28px; line-height:1.35; letter-spacing:.01em}
       .sub{font-size:15px; line-height:1.9; margin-bottom:16px}
-      .cta{gap:10px}
       .btn{width:100%; justify-content:center; padding:13px 14px}
       section{padding:40px 0}
       .shot{border-radius:14px}
@@ -128,29 +126,24 @@
       summary{font-size:16px}
     }
 
-    /* small utils */
-    .muted{color:#667085}
-    .card{border:1px solid #e6e6e6;border-radius:12px;padding:20px;background:#fff}
-
-    /* expand buttons */
-    .expand-btn{
-      margin-top:16px; padding:10px 14px; border:1px solid var(--green);
-      background:#fff; color:var(--green); border-radius:8px; cursor:pointer; font-weight:700;
-    }
+    /* Legal “続きを読む” */
+    .fold{max-height:0; overflow:hidden; transition:max-height .35s ease}
+    .fold.open{max-height:2000px}
+    .readmore{margin-top:12px; display:inline-block; font-weight:700; border:1px solid #d0d5dd; padding:10px 14px; border-radius:10px}
   </style>
 </head>
 <body>
   <!-- ヘッダー -->
   <header class="container site-header" aria-label="サイトヘッダー">
     <a href="#top" class="brand" aria-label="Habie トップへ移動">Habie</a>
-    <!-- PCナビ -->
     <nav class="nav" aria-label="グローバルナビ">
       <a href="#features">特徴</a>
       <a href="#plans">プラン</a>
       <a href="#faq">よくある質問</a>
+      <a href="#privacy">プライバシー</a>
+      <a href="#terms">利用規約</a>
       <a href="https://lin.ee/Grn0zNX" target="_blank" rel="noopener">無料相談</a>
     </nav>
-    <!-- ハンバーガー -->
     <button id="menuBtn" class="hamburger" aria-label="メニューを開く" aria-controls="mobileNav" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -162,6 +155,8 @@
       <li><a href="#features">特徴</a></li>
       <li><a href="#plans">プラン</a></li>
       <li><a href="#faq">よくある質問</a></li>
+      <li><a href="#privacy">プライバシー</a></li>
+      <li><a href="#terms">利用規約</a></li>
       <li><a href="https://lin.ee/Grn0zNX" target="_blank" rel="noopener">無料相談（LINE）</a></li>
     </ul>
   </nav>
@@ -248,11 +243,9 @@
   </section>
 
   <!-- 月額プラン -->
-  <section id="monthly-plans" style="max-width:1200px;margin:0 auto;padding:64px 24px;">
-    <h2 style="text-align:center;font-size:32px;margin-bottom:40px;font-weight:800;">月額プラン</h2>
-
+  <section id="monthly-plans" class="container" style="padding-top:0;">
+    <h2 class="section-title" style="text-align:center;">月額プラン</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
-      <!-- ベーシック -->
       <div class="card" style="text-align:center;">
         <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">🌱 ベーシック</h3>
         <p style="font-size:28px;font-weight:800;margin:8px 0;">¥9,800 / 月</p>
@@ -267,7 +260,6 @@
         </a>
       </div>
 
-      <!-- プレミアム（3か月まとめ） -->
       <div class="card" style="text-align:center;border:2px solid #2fbf71;background:#f8fdfb;box-shadow:0 6px 20px rgba(0,0,0,.08);">
         <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">💎 プレミアム</h3>
         <p style="font-size:28px;font-weight:800;margin:8px 0;">¥29,800 / 3か月</p>
@@ -286,57 +278,52 @@
     </div>
   </section>
 
-  <!-- 完全オーダー（選択式｜加算式表示） -->
-  <section id="custom-order" style="max-width:1200px;margin:0 auto;padding:64px 24px;">
-    <h2 style="text-align:center;font-size:32px;font-weight:800;margin-bottom:20px;">完全オーダープラン</h2>
-    <p class="muted" style="text-align:center;margin:0 0 36px;">
-      期間・濃さ・サポート時間・献立まで、あなたに合わせてカスタマイズ。<br>
-      基本料金に<strong>「＋◯円〜」で加算</strong>して合計を作る方式です（単体利用の<span style="white-space:nowrap">参考価格</span>も併記）。
-    </p>
+  <!-- 完全オーダー -->
+  <section id="custom-order" class="container">
+    <h2 class="section-title" style="text-align:center;">完全オーダープラン</h2>
+    <p class="muted" style="text-align:center;margin:-8px 0 28px;">期間・濃さ・サポート時間・献立まで自由にカスタマイズ。<br>基本料金に<strong>「＋◯円〜」</strong>で加算する方式（単体参考価格も併記）。</p>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
       <div class="card">
-        <h3 style="font-size:18px;margin:0 0 6px;">① 期間</h3>
+        <h3>① 期間</h3>
         <ul style="margin:0;padding-left:18px;line-height:1.8;">
           <li>1週間（お試し）… ベース料金設定</li>
           <li>1か月（習慣化）… ベース料金設定</li>
           <li>3か月（本気改善）… ベース料金設定</li>
         </ul>
-        <p class="muted" style="margin:8px 0 0;font-size:13px;">
-          例）1か月ベース：<strong>¥9,800〜/月</strong>（キャンペーン時は変更あり）
-        </p>
+        <p class="muted" style="margin:8px 0 0;font-size:13px;">例）1か月ベース：<strong>¥9,800〜/月</strong></p>
       </div>
 
       <div class="card">
-        <h3 style="font-size:18px;margin:0 0 6px;">② フィードバック数</h3>
+        <h3>② フィードバック数</h3>
         <ul style="margin:0;padding-left:18px;line-height:1.8;">
           <li>1日1回（基本）… <strong>＋¥0</strong></li>
-          <li>1日2回 … <strong>＋¥3,000〜/月</strong>（例：合計 ¥12,800〜）</li>
-          <li>毎食（3回）… <strong>＋¥6,000〜/月</strong>（例：合計 ¥15,800〜）</li>
+          <li>1日2回 … <strong>＋¥3,000〜/月</strong></li>
+          <li>毎食（3回）… <strong>＋¥6,000〜/月</strong></li>
         </ul>
       </div>
 
       <div class="card">
-        <h3 style="font-size:18px;margin:0 0 6px;">③ LINE応答時間（サポート時間）</h3>
+        <h3>③ LINE応答時間</h3>
         <ul style="margin:0;padding-left:18px;line-height:1.8;">
           <li>平日 10:00〜17:00 … <strong>＋¥0</strong></li>
-          <li>毎日 10:00〜20:00 … <strong>＋¥5,000〜/月</strong>（例：合計 ¥14,800〜）</li>
+          <li>毎日 10:00〜20:00 … <strong>＋¥5,000〜/月</strong></li>
           <li>夜間対応あり … <strong>＋¥8,000〜/月</strong></li>
         </ul>
         <p class="muted" style="margin:8px 0 0;font-size:13px;">※ 応答はSLAに準拠（通常48h以内／優先は12h以内）</p>
       </div>
 
       <div class="card">
-        <h3 style="font-size:18px;margin:0 0 6px;">④ 献立表の有無</h3>
+        <h3>④ 献立表の有無</h3>
         <ul style="margin:0;padding-left:18px;line-height:1.8;">
           <li>なし（フィードバックのみ）… <strong>＋¥0</strong></li>
-          <li>3日分（ミニ）… <strong>＋¥2,000〜/回</strong>（単体参考）</li>
-          <li>7日分（フル）… <strong>＋¥4,000〜/回</strong>（単体参考）</li>
+          <li>3日分（ミニ）… <strong>＋¥2,000〜/回</strong></li>
+          <li>7日分（フル）… <strong>＋¥4,000〜/回</strong></li>
         </ul>
       </div>
 
       <div class="card">
-        <h3 style="font-size:18px;margin:0 0 6px;">⑤ 献立の提供方法</h3>
+        <h3>⑤ 献立の提供方法</h3>
         <ul style="margin:0;padding-left:18px;line-height:1.8;">
           <li>1回だけ（3or7日分）… <strong>＋¥0</strong>（④の作成費のみ）</li>
           <li>毎週更新（週ごと配布）… <strong>＋¥2,000〜/月</strong></li>
@@ -344,7 +331,7 @@
       </div>
 
       <div class="card">
-        <h3 style="font-size:18px;margin:0 0 6px;">⑥ 相談内容の幅</h3>
+        <h3>⑥ 相談内容の幅</h3>
         <ul style="margin:0;padding-left:18px;line-height:1.8;">
           <li>食事だけ … <strong>＋¥0</strong></li>
           <li>食事＋生活習慣 … <strong>＋¥1,500〜/月</strong></li>
@@ -356,11 +343,10 @@
     <div style="text-align:center;margin-top:24px;">
       <a href="https://lin.ee/Grn0zNX" target="_blank"
          style="display:inline-block;padding:14px 22px;background:#2fbf71;color:#fff;font-weight:800;border-radius:10px;text-decoration:none;">
-        無料相談
+        LINEでオーダー相談する
       </a>
       <p class="muted" style="font-size:13px;margin:10px 0 0;">
-        ※ 表示は税込の目安。実際の合計は選択内容で変動します。<br>
-        例：ベース¥9,800 + 毎食¥6,000 + 毎日対応¥5,000 = <strong>合計 ¥20,800/月〜</strong>
+        ※ 表示は税込の目安。選択内容により合計が変動します。
       </p>
     </div>
   </section>
@@ -390,12 +376,11 @@
     <p class="muted" style="font-size:14px;">※ お問い合わせ用に記載しています。</p>
   </section>
 
-  <!-- プライバシーポリシー（冒頭3項目＋続きを読む） -->
+  <!-- プライバシーポリシー（折りたたみ） -->
   <section id="privacy" class="container" aria-label="プライバシーポリシー">
     <h2 class="section-title">プライバシーポリシー</h2>
     <div class="card" style="line-height:1.9;">
-      <p>Habie運営事務局（以下「当事務局」）は、当サービス（以下「本サービス」）の提供にあたり、利用者の個人情報を以下の方針で適切に取り扱います。<br>
-      本サービスは主に<strong>LINE公式アカウントを通じて運用</strong>されます。</p>
+      <p>Habie運営事務局（以下「当事務局」）は、当サービス（以下「本サービス」）の提供にあたり、利用者の個人情報を以下の方針で適切に取り扱います。</p>
 
       <h3>1. 取得する情報</h3>
       <ul>
@@ -408,108 +393,91 @@
       <ul>
         <li>食事・生活習慣に関する分析、フィードバックの提供</li>
         <li>ご質問対応、各種ご連絡、重要なお知らせの配信</li>
-        <li>サービス改善・品質向上のための分析（統計的処理を含む）</li>
-        <li>決済・請求・不正利用防止・トラブル対応</li>
+        <li>サービス改善・品質向上のための分析（統計的データの作成を含む）</li>
       </ul>
 
-      <h3>3. 共同利用・第三者提供</h3>
-      <p>法令に基づく場合を除き、本人の同意なく第三者に提供しません。業務委託先（例：LINE、決済事業者、データ保管事業者）には、目的達成に必要な範囲で提供し、適切に管理・監督します。</p>
+      <h3>3. 第三者提供・共同利用</h3>
+      <p>法令に基づく場合を除き、本人の同意なく第三者に提供しません。業務委託先（例：LINE、決済・保管事業者）には必要範囲で委託し、適切に管理・監督します。</p>
 
-      <!-- ここから続きを隠す -->
-      <div id="privacy-more" style="display:none;">
+      <div id="privacy-more" class="fold">
         <h3>4. 安全管理</h3>
-        <p>取得した情報は、アクセス制限・暗号化等の安全管理措置を講じ、漏えい・滅失・毀損の防止に努めます。</p>
+        <p>アクセス制限・暗号化等の安全管理措置を講じ、漏えい・滅失・毀損を防止します。</p>
 
         <h3>5. 保存期間</h3>
         <p>利用目的の達成に必要な期間保存し、不要となった情報は適切な方法で削除します。</p>
 
         <h3>6. ユーザーの権利</h3>
-        <p>保有個人データの開示・訂正・利用停止・削除等をご希望の場合は、下記お問い合わせ先までご連絡ください。法令に基づき適切に対応します。</p>
+        <p>保有個人データの開示・訂正・利用停止・削除等のご請求は下記窓口まで。法令に基づき適切に対応します。</p>
 
         <h3>7. 外部サービスの利用</h3>
-        <p>本サービスは、LINEプラットフォームおよび決済事業者等の外部サービスを利用します。各事業者のポリシーもあわせてご確認ください。</p>
+        <p>本サービスはLINEプラットフォームおよび決済事業者等の外部サービスを利用します。各事業者のポリシーもご確認ください。</p>
 
-        <h3>8. クッキー等の使用</h3>
-        <p>本サイトでは閲覧分析や体験向上のためクッキー等を使用する場合があります。ブラウザ設定により無効化できます。</p>
+        <h3>8. クッキー等</h3>
+        <p>本サイトでは体験向上のためクッキー等を使用する場合があります。ブラウザ設定で無効化できます。</p>
 
         <h3>9. 改定</h3>
-        <p>本ポリシーは、法令改正やサービス変更に応じて改定することがあります。重要な変更は本サイトでお知らせします。</p>
+        <p>法令改正やサービス変更に応じて本ポリシーを改定します。重要な変更は本サイトで告知します。</p>
 
         <h3>10. お問い合わせ窓口</h3>
-        <p>Habie運営事務局<br>
-          メール：<a href="mailto:habie.goolife@gmail.com">habie.goolife@gmail.com</a></p>
-
-        <p class="muted" style="font-size:14px;margin-top:12px;">施行日：2025-09-22（初版）</p>
+        <p>Habie運営事務局　/　メール：<a href="mailto:habie.goolife@gmail.com">habie.goolife@gmail.com</a></p>
+        <p class="muted" style="font-size:14px;margin-top:8px;">施行日：2025-09-22（初版）</p>
       </div>
 
-      <button id="privacy-toggle" class="expand-btn" aria-expanded="false" aria-controls="privacy-more">続きを読む</button>
+      <a class="readmore" data-target="privacy-more" role="button" aria-expanded="false">続きを読む</a>
     </div>
   </section>
 
-  <!-- 利用規約（冒頭3項目＋続きを読む） -->
+  <!-- 利用規約（折りたたみ） -->
   <section id="terms" class="container" aria-label="利用規約">
     <h2 class="section-title">利用規約</h2>
     <div class="card" style="line-height:1.9;">
-      <p>この利用規約（以下「本規約」）は、Habie運営事務局（以下「当事務局」）が提供する「Habie」（以下「本サービス」）の利用条件を定めるものです。</p>
+      <p>この利用規約（以下「本規約」）は、Habie運営事務局（以下「当事務局」）が提供する本サービスの利用条件を定めるものです。利用者は本規約に同意のうえご利用ください。</p>
 
-      <h3>1. サービス内容</h3>
-      <ol style="padding-left:18px; margin:0;">
-        <li>本サービスは、<strong>LINE公式アカウント上でのやり取り</strong>を基本とする、食事・生活習慣のフィードバック提供サービスです。</li>
-        <li>利用者は、LINEで写真やメッセージを送信し、当事務局のフィードバックを受けます。</li>
-        <li>本サービスは医療行為を目的とせず、一般的なアドバイスを提供します。</li>
-      </ol>
+      <h3>1. 本サービスの内容</h3>
+      <p>LINE等を通じた食事・生活習慣の記録、分析、アドバイス、各種通知の提供。</p>
 
-      <h3>2. 料金と支払方法</h3>
-      <ol style="padding-left:18px; margin:0;">
-        <li>有料プランの料金は本サイトのプラン表に従います。</li>
-        <li>支払方法は、Stripe、PayPal、<strong>銀行振込</strong>、LINE公式メンバーシップ決済、その他当事務局が指定する方法とします。</li>
-        <li>銀行振込の場合の振込手数料は利用者負担とします。</li>
-      </ol>
+      <h3>2. アカウントと本人確認</h3>
+      <p>利用者は正確な情報を登録し、不正利用の疑いがある場合は利用停止等の措置を講じます。</p>
 
       <h3>3. 禁止事項</h3>
       <ul>
-        <li>法令・公序良俗に反する行為</li>
-        <li>不適切な画像・文章（アダルト、暴力、誹謗中傷等）の送信</li>
-        <li>第三者の権利を侵害する行為</li>
-        <li>サービス運営を妨害する行為</li>
+        <li>法令や公序良俗に反する行為、第三者の権利侵害</li>
+        <li>当事務局または他者の運営を妨げる行為</li>
+        <li>虚偽情報の提供、不正アクセス、スパム行為</li>
       </ul>
 
-      <!-- ここから続きを隠す -->
-      <div id="terms-more" style="display:none;">
-        <h3>4. 免責事項</h3>
-        <ol style="padding-left:18px; margin:0;">
-          <li>当事務局は、医療的判断・診断・治療等について責任を負いません。</li>
-          <li>本サービスの利用により生じた損害につき、当事務局は一切の責任を負いません。</li>
-        </ol>
+      <div id="terms-more" class="fold">
+        <h3>4. 料金・決済・解約</h3>
+        <ul>
+          <li>料金はサイト表示のとおり。Stripe/PayPay/銀行振込等の決済事業者を利用する場合があります。</li>
+          <li>解約は月単位で可能。決済・返金条件は各プラン表示および決済事業者の規約に準じます。</li>
+        </ul>
 
-        <h3>5. 解約・返金</h3>
-        <ol style="padding-left:18px; margin:0;">
-          <li>利用者はいつでも解約できます。支払済み料金の返金は行いません。</li>
-          <li>継続課金の停止は、更新日前日までに行ってください。</li>
-        </ol>
+        <h3>5. 知的財産</h3>
+        <p>本サービスに関する一切の知的財産権は当事務局または権利者に帰属します。無断転載・複製を禁じます。</p>
 
-        <h3>6. サービス提供の停止等</h3>
-        <ol style="padding-left:18px; margin:0;">
-          <li>保守・障害対応・天災その他やむを得ない事由により、事前通知なく本サービスの提供を停止することがあります。</li>
-        </ol>
+        <h3>6. 免責</h3>
+        <p>当事務局は、提供情報の正確性や完全性を保証しません。利用により生じた損害について、当事務局に故意・重過失がある場合を除き、直接かつ通常の損害の範囲での責任に限ります。</p>
 
-        <h3>7. 個人情報の取扱い</h3>
-        <p>個人情報の取扱いは、別途定める「プライバシーポリシー」に従います。</p>
+        <h3>7. サービスの変更・停止</h3>
+        <p>当事務局は、事前通知のうえサービス内容の変更・中断・終了を行うことがあります。</p>
 
         <h3>8. 規約の変更</h3>
-        <p>当事務局は、本規約を随時改定できるものとし、改定後は本サイトに掲示した時点で効力を生じます。</p>
+        <p>当事務局は必要に応じて本規約を改定します。変更後の規約は本サイトでの掲示時に効力を生じます。</p>
 
-        <h3>9. 準拠法・管轄</h3>
-        <p>本規約は日本法に準拠し、紛争が生じた場合は当事務局所在地を管轄する裁判所を第一審の専属管轄とします。</p>
+        <h3>9. 準拠法・裁判管轄</h3>
+        <p>本規約は日本法に準拠し、紛争は当事務局所在地を管轄する裁判所を第一審の専属的合意管轄とします。</p>
 
-        <h3>10. 運営者情報</h3>
-        <p>Habie運営事務局 / 連絡先：<a href="mailto:habie.goolife@gmail.com">habie.goolife@gmail.com</a></p>
+        <h3>10. 連絡先</h3>
+        <p>Habie運営事務局　/　メール：<a href="mailto:habie.goolife@gmail.com">habie.goolife@gmail.com</a></p>
+        <p class="muted" style="font-size:14px;margin-top:8px;">施行日：2025-09-22（初版）</p>
       </div>
 
-      <button id="terms-toggle" class="expand-btn" aria-expanded="false" aria-controls="terms-more">続きを読む</button>
+      <a class="readmore" data-target="terms-more" role="button" aria-expanded="false">続きを読む</a>
     </div>
   </section>
 
+  <!-- フッター -->
   <footer class="container" aria-label="フッター">
     <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap">
       <div>
@@ -520,7 +488,7 @@
         <a href="#features">特徴</a>
         <a href="#plans">プラン</a>
         <a href="#faq">FAQ</a>
-        <a href="#privacy">プライバシーポリシー</a>
+        <a href="#privacy">プライバシー</a>
         <a href="#terms">利用規約</a>
         <a href="#contact">運営者情報</a>
         <a href="https://lin.ee/Grn0zNX" target="_blank" rel="noopener">LINEでお問い合わせ</a>
@@ -529,10 +497,10 @@
   </footer>
 
   <script>
-    // 年
+    // 年表示
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // モバイルメニュー
+    // モバイルナビ
     (function(){
       const root = document.documentElement;
       const btn = document.getElementById('menuBtn');
@@ -553,39 +521,23 @@
         document.body.style.overflow = '';
       }
       btn.addEventListener('click', () => {
-        const opened = root.classList.contains('mobile-open');
-        opened ? closeMenu() : openMenu();
+        root.classList.contains('mobile-open') ? closeMenu() : openMenu();
       });
       overlay.addEventListener('click', closeMenu);
       nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
       window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
     })();
 
-    // プライバシーポリシー 続きを読む
-    (function(){
-      const btn = document.getElementById('privacy-toggle');
-      const more = document.getElementById('privacy-more');
-      let expanded = false;
-      btn.addEventListener('click', () => {
-        expanded = !expanded;
-        more.style.display = expanded ? 'block' : 'none';
-        btn.textContent = expanded ? '閉じる' : '続きを読む';
-        btn.setAttribute('aria-expanded', expanded.toString());
+    // 「続きを読む」トグル
+    document.querySelectorAll('.readmore').forEach(btn=>{
+      const id = btn.getAttribute('data-target');
+      const fold = document.getElementById(id);
+      btn.addEventListener('click', ()=>{
+        const opened = fold.classList.toggle('open');
+        btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+        btn.textContent = opened ? '閉じる' : '続きを読む';
       });
-    })();
-
-    // 利用規約 続きを読む
-    (function(){
-      const btn = document.getElementById('terms-toggle');
-      const more = document.getElementById('terms-more');
-      let expanded = false;
-      btn.addEventListener('click', () => {
-        expanded = !expanded;
-        more.style.display = expanded ? 'block' : 'none';
-        btn.textContent = expanded ? '閉じる' : '続きを読む';
-        btn.setAttribute('aria-expanded', expanded.toString());
-      });
-    })();
+    });
   </script>
 </body>
 </html>
