@@ -75,10 +75,57 @@
     /* Footer */
     footer{padding:32px 0;border-top:1px solid var(--line);color:#475467}
 
+    /* ---- ハンバーガーメニュー ---- */
+    .hamburger{display:none; position:relative; width:36px; height:28px; border:0; background:transparent; padding:0; cursor:pointer}
+    .hamburger span{position:absolute; left:0; right:0; height:2px; background:var(--ink); border-radius:2px; transition:transform .2s ease, top .2s ease, opacity .2s}
+    .hamburger span:nth-child(1){top:4px}
+    .hamburger span:nth-child(2){top:13px}
+    .hamburger span:nth-child(3){top:22px}
+    .mobile-open .hamburger span:nth-child(1){top:13px; transform:rotate(45deg)}
+    .mobile-open .hamburger span:nth-child(2){opacity:0}
+    .mobile-open .hamburger span:nth-child(3){top:13px; transform:rotate(-45deg)}
     @media (max-width:980px){
-      .hero{grid-template-columns:1fr;gap:28px;padding:32px 0 56px}
-      h1{font-size:34px}
-      .sub{font-size:16px}
+      .nav{display:none}
+      .hamburger{display:block}
+    }
+    .mobile-drawer{
+      position:fixed; top:0; right:0; height:100dvh; width:78%; max-width:340px;
+      background:#fff; box-shadow:-12px 0 30px rgba(0,0,0,.12);
+      transform:translateX(100%); transition:transform .25s ease; z-index:100;
+      padding:20px;
+    }
+    .mobile-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:16px}
+    .mobile-list a{display:block; padding:12px 8px; font-weight:700; border-radius:10px}
+    .mobile-list a:hover{background:#f6f7f8}
+    .mobile-open #mobileNav{transform:translateX(0)}
+    .overlay{
+      position:fixed; inset:0; background:rgba(0,0,0,.28); z-index:90;
+      opacity:0; transition:opacity .2s ease; pointer-events:none;
+    }
+    .mobile-open #overlay{opacity:1; pointer-events:auto}
+
+    /* ===== Mobile (≤768px) 追加の見やすさ調整 ===== */
+    @media (max-width:768px){
+      .container{padding:0 16px}
+      .site-header{padding:12px 0; gap:10px}
+      .brand{font-size:20px}
+      .hero{grid-template-columns:1fr; gap:18px; padding:24px 0 36px}
+      h1{font-size:28px; line-height:1.35; letter-spacing:.01em}
+      .sub{font-size:15px; line-height:1.9; margin-bottom:16px}
+      .cta{gap:10px}
+      .btn{width:100%; justify-content:center; padding:13px 14px}
+      section{padding:40px 0}
+      .shot{border-radius:14px}
+      .badge{left:10px; bottom:10px; padding:6px 10px; font-size:11px}
+      .wk-wrap{padding:40px 16px}
+      .wk-title{font-size:26px; margin-bottom:22px}
+      .wk-grid{grid-template-columns:1fr; gap:14px}
+      .wk-card{padding:18px; border-radius:12px}
+      .wk-name{font-size:18px}
+      .wk-price{font-size:24px}
+      .wk-list{font-size:14px; line-height:1.9}
+      details{padding:12px 14px}
+      summary{font-size:16px}
     }
 
     /* small utils */
@@ -87,15 +134,34 @@
   </style>
 </head>
 <body>
+  <!-- ヘッダー -->
   <header class="container site-header" aria-label="サイトヘッダー">
     <a href="#top" class="brand" aria-label="Habie トップへ移動">Habie</a>
+    <!-- PCナビ -->
     <nav class="nav" aria-label="グローバルナビ">
       <a href="#features">特徴</a>
       <a href="#plans">プラン</a>
       <a href="#faq">よくある質問</a>
+      <a href="https://lin.ee/Grn0zNX" target="_blank" rel="noopener">無料相談</a>
     </nav>
+    <!-- ハンバーガー -->
+    <button id="menuBtn" class="hamburger" aria-label="メニューを開く" aria-controls="mobileNav" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </header>
+  <!-- モバイルメニュー -->
+  <nav id="mobileNav" class="mobile-drawer" aria-hidden="true" aria-label="モバイルナビ">
+    <ul class="mobile-list">
+      <li><a href="#top">トップ</a></li>
+      <li><a href="#features">特徴</a></li>
+      <li><a href="#plans">プラン</a></li>
+      <li><a href="#faq">よくある質問</a></li>
+      <li><a href="https://lin.ee/Grn0zNX" target="_blank" rel="noopener">無料相談（LINE）</a></li>
+    </ul>
+  </nav>
+  <div id="overlay" class="overlay" hidden></div>
 
+  <!-- ヒーロー -->
   <section id="top" class="container hero" aria-label="ヒーローセクション">
     <div>
       <span class="kicker">次世代の習慣サポート</span>
@@ -387,6 +453,33 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+    (function(){
+      const root = document.documentElement;
+      const btn = document.getElementById('menuBtn');
+      const nav = document.getElementById('mobileNav');
+      const overlay = document.getElementById('overlay');
+      function openMenu(){
+        root.classList.add('mobile-open');
+        btn.setAttribute('aria-expanded','true');
+        nav.setAttribute('aria-hidden','false');
+        overlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenu(){
+        root.classList.remove('mobile-open');
+        btn.setAttribute('aria-expanded','false');
+        nav.setAttribute('aria-hidden','true');
+        overlay.hidden = true;
+        document.body.style.overflow = '';
+      }
+      btn.addEventListener('click', () => {
+        const opened = root.classList.contains('mobile-open');
+        opened ? closeMenu() : openMenu();
+      });
+      overlay.addEventListener('click', closeMenu);
+      nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+      window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+    })();
   </script>
 </body>
 </html>
