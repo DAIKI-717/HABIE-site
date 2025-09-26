@@ -67,7 +67,22 @@
     .wk-list{text-align:left;line-height:1.8;font-size:15px;list-style:none;padding:0;margin:16px 0 0}
     .wk-cta{display:inline-block;margin-top:16px;padding:12px 20px;background:var(--green);color:#fff;font-weight:700;border-radius:8px;text-decoration:none}
 
-    /* FAQ, Legal cards */
+    /* CTA banner */
+    .promo{background:linear-gradient(90deg, rgba(47,191,113,.1), rgba(255,138,52,.08)); border:1px solid #e6e6e6; border-radius:16px; padding:20px; display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .promo p{margin:0;color:#344054}
+    .promo .btn{white-space:nowrap}
+
+    /* FAQ（PCとSP切替） */
+    .faq-box{display:none}          /* デフォルトはSP用（details）を表示 */
+    @media (min-width:981px){       /* PCではボックスを出し、detailsを隠す */
+      .faq-accordions{display:none}
+      .faq-box{display:block; border:1px solid var(--line); border-radius:12px; padding:16px; background:#fff; max-height:9.6em; overflow:auto;}
+      .faq-box dl{margin:0}
+      .faq-box dt{font-weight:800; margin-top:10px}
+      .faq-box dd{margin:6px 0 10px 0; color:#475467}
+    }
+
+    /* FAQ, Legal cards (SP用) */
     details{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}
     summary{font-weight:700;cursor:pointer}
     details+details{margin-top:12px}
@@ -180,6 +195,14 @@
     </div>
   </section>
 
+  <!-- LINE誘導バナー -->
+  <section class="container" aria-label="LINE限定案内" style="padding-top:0;">
+    <div class="promo">
+      <p><strong>LINE限定：</strong>キャンペーンやクーポン、先行案内はLINEで配信します。</p>
+      <a class="btn btn-primary" href="https://lin.ee/Grn0zNX" target="_blank" rel="noopener">LINEで無料相談</a>
+    </div>
+  </section>
+
   <!-- Features -->
   <section id="features" class="container" aria-label="特徴">
     <h2 class="section-title">Habieの特徴</h2>
@@ -199,7 +222,7 @@
     </div>
   </section>
 
-  <!-- 1週間プラン -->
+  <!-- 1週間プラン（据え置き） -->
   <section id="plans" class="wk-wrap" aria-label="1週間プラン">
     <h2 class="wk-title">1週間プラン</h2>
     <div class="wk-grid">
@@ -242,17 +265,18 @@
     </div>
   </section>
 
-  <!-- 月額プラン -->
+  <!-- 月額プラン（刷新） -->
   <section id="monthly-plans" class="container" style="padding-top:0;">
     <h2 class="section-title" style="text-align:center;">月額プラン</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+      <!-- ライト -->
       <div class="card" style="text-align:center;">
-        <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">🌱 ベーシック</h3>
-        <p style="font-size:28px;font-weight:800;margin:8px 0;">¥9,800 / 月</p>
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">🌿 ライト</h3>
+        <p style="font-size:28px;font-weight:800;margin:8px 0;">¥7,500 / 月</p>
         <ul style="text-align:left;line-height:1.8;font-size:15px;list-style:none;padding:0;">
-          <li>✔ 食事フィードバック：毎日</li>
-          <li>✔ 生活習慣サポート：週次＋改善プラン</li>
-          <li>✔ LINE相談：無制限（24h以内返信）</li>
+          <li>✔ 食事フィードバック：平日（週5）</li>
+          <li>✔ 生活習慣ミニチェック（週1）</li>
+          <li>✔ LINE相談：24–48h以内返信</li>
         </ul>
         <a href="https://lin.ee/Grn0zNX" target="_blank"
            style="display:inline-block;margin-top:16px;padding:12px 20px;background:#2fbf71;color:#fff;font-weight:700;border-radius:8px;text-decoration:none;">
@@ -260,21 +284,44 @@
         </a>
       </div>
 
+      <!-- ベーシック（おすすめ） -->
       <div class="card" style="text-align:center;border:2px solid #2fbf71;background:#f8fdfb;box-shadow:0 6px 20px rgba(0,0,0,.08);">
-        <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">💎 プレミアム</h3>
-        <p style="font-size:28px;font-weight:800;margin:8px 0;">¥29,800 / 3か月</p>
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">✨ ベーシック</h3>
+        <p style="font-size:28px;font-weight:800;margin:8px 0;">¥8,800 / 月</p>
         <p style="color:#2fbf71;font-weight:700;margin-bottom:16px;">おすすめ！</p>
         <ul style="text-align:left;line-height:1.8;font-size:15px;list-style:none;padding:0;">
           <li>✔ 食事フィードバック：毎日</li>
-          <li>✔ 生活習慣サポート：毎週レビュー＋改善プラン</li>
-          <li>✔ LINE相談：無制限（優先対応）</li>
-          <li>✔ まとめレポート＆継続アドバイス</li>
+          <li>✔ 生活習慣サポート：週次プラン更新</li>
+          <li>✔ LINE相談：24h以内返信</li>
+          <li>✔ 月末まとめレポート</li>
         </ul>
         <a href="https://lin.ee/Grn0zNX" target="_blank"
            style="display:inline-block;margin-top:16px;padding:12px 20px;background:#2fbf71;color:#fff;font-weight:700;border-radius:8px;text-decoration:none;">
           このプランに申し込む
         </a>
       </div>
+
+      <!-- プレミアム（3か月） -->
+      <div class="card" style="text-align:center;">
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:12px;">💎 プレミアム</h3>
+        <p style="font-size:28px;font-weight:800;margin:8px 0;">¥29,800 / 3か月</p>
+        <ul style="text-align:left;line-height:1.8;font-size:15px;list-style:none;padding:0;">
+          <li>✔ 食事フィードバック：毎日＋重点レビュー</li>
+          <li>✔ 生活習慣：毎週レビュー＋改善ロードマップ</li>
+          <li>✔ LINE相談：優先対応（目安12h以内）</li>
+          <li>✔ 3か月総括レポート＆継続提案</li>
+        </ul>
+        <a href="https://lin.ee/Grn0zNX" target="_blank"
+           style="display:inline-block;margin-top:16px;padding:12px 20px;background:#2fbf71;color:#fff;font-weight:700;border-radius:8px;text-decoration:none;">
+          このプランに申し込む
+        </a>
+      </div>
+    </div>
+
+    <!-- LINE誘導（キャンペーン明示） -->
+    <div class="promo" style="margin-top:20px;">
+      <p><strong>さらに：</strong>LINE限定のキャンペーン・クーポン配布中。最新情報は公式LINEで！</p>
+      <a class="btn btn-secondary" href="https://lin.ee/Grn0zNX" target="_blank" rel="noopener">LINEで受け取る</a>
     </div>
   </section>
 
@@ -351,21 +398,70 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- FAQ（PC=ボックス, SP=開閉） -->
   <section id="faq" class="container" aria-label="よくある質問">
     <h2 class="section-title">よくある質問</h2>
-    <details>
-      <summary>本当にLINEだけで使えますか？</summary>
-      <p>はい。申し込み・記録・フィードバックまで、すべてLINEで完結します。専用アプリのインストールは不要です。</p>
-    </details>
-    <details>
-      <summary>忙しくても続けられますか？</summary>
-      <p>Habieは「できること」から提案します。最短30秒の写真送信と一言メモでOK。無理のないペースを一緒に設計します。</p>
-    </details>
-    <details>
-      <summary>解約やプラン変更はいつでも可能ですか？</summary>
-      <p>はい。月単位での変更・停止が可能です。途中月の返金ポリシーは利用規約に準拠します。</p>
-    </details>
+
+    <!-- PC向け：スクロールボックス -->
+    <div class="faq-box" aria-hidden="true">
+      <dl>
+        <dt>1. サービスはLINEで使いますか？</dt>
+        <dd>はい、HabieはLINEを使います。申込・記録・フィードバックまでLINEで完結。メール等の代替もご相談ください。</dd>
+
+        <dt>2. どのくらいの頻度でやり取りしますか？</dt>
+        <dd>プランのフィードバック頻度（例：平日/毎日）に準じます。最低でも週1回のまとめフィードバックを実施します。</dd>
+
+        <dt>3. 返信はどれくらいで来ますか？</dt>
+        <dd>ライト：24–48h以内／ベーシック：24h以内／プレミアム：優先（目安12h以内）。混雑時は多少前後します。</dd>
+
+        <dt>4. 写真はどんな風に撮ればいいですか？</dt>
+        <dd>明るい場所で真上から、量が分かるように。外食・コンビニもOK。原材料や商品名があると精度UP。</dd>
+
+        <dt>5. プライバシーは大丈夫ですか？</dt>
+        <dd>必要最小限の範囲で利用し、安全管理に努めます。詳細はプライバシーポリシーをご確認ください。</dd>
+
+        <dt>6. 医療ダイエットや病気の治療も対応してもらえますか？</dt>
+        <dd>医療行為は行いません。治療中の方は主治医の方針を最優先し、生活習慣面の補助のみ対応します。</dd>
+
+        <dt>7. 途中でプラン変更や解約はできますか？</dt>
+        <dd>はい、月単位で可能です。1週間プランは期間満了で自動終了します。</dd>
+
+        <dt>8. 支払い方法は？</dt>
+        <dd>クレジットカード（Stripe）、PayPay、銀行振込に対応予定。詳細はLINEでご案内します。</dd>
+
+        <dt>9. 学生割引やチーム向けプランはありますか？</dt>
+        <dd>あります。条件や料金は時期により異なるため、LINEでお問い合わせください。</dd>
+
+        <dt>10. LINEが苦手です。別の手段はありますか？</dt>
+        <dd>メールやフォーム、スプレッドシート等の代替をご提案できます。</dd>
+
+        <dt>11. どのくらいで成果が出ますか？</dt>
+        <dd>個人差がありますが、2〜4週間で習慣の手応え、1〜3か月で体感の変化が出やすい傾向です。</dd>
+
+        <dt>12. キャンペーンやクーポンはどこで確認できますか？</dt>
+        <dd>公式LINEで配布しています。最新情報は友だち追加後のメッセージをご確認ください。</dd>
+      </dl>
+    </div>
+
+    <!-- スマホ向け：アコーディオン -->
+    <div class="faq-accordions">
+      <details><summary>1. サービスはLINEで使いますか？</summary><p>はい、HabieはLINEを使います。申込・記録・フィードバックまでLINEで完結。メール等の代替もご相談ください。</p></details>
+      <details><summary>2. どのくらいの頻度でやり取りしますか？</summary><p>プランのフィードバック頻度（例：平日/毎日）に準じます。最低でも週1回のまとめフィードバックを実施します。</p></details>
+      <details><summary>3. 返信はどれくらいで来ますか？</summary><p>ライト：24–48h以内／ベーシック：24h以内／プレミアム：優先（目安12h以内）。混雑時は多少前後します。</p></details>
+      <details><summary>4. 写真はどんな風に撮ればいいですか？</summary><p>明るい場所で真上から、量が分かるように。外食・コンビニもOK。原材料や商品名があると精度UP。</p></details>
+      <details><summary>5. プライバシーは大丈夫ですか？</summary><p>必要最小限の範囲で利用し、安全管理に努めます。詳細はプライバシーポリシーをご確認ください。</p></details>
+      <details><summary>6. 医療ダイエットや病気の治療も対応してもらえますか？</summary><p>医療行為は行いません。治療中の方は主治医の方針を最優先し、生活習慣面の補助のみ対応します。</p></details>
+      <details><summary>7. 途中でプラン変更や解約はできますか？</summary><p>はい、月単位で可能です。1週間プランは期間満了で自動終了します。</p></details>
+      <details><summary>8. 支払い方法は？</summary><p>クレジットカード（Stripe）、PayPay、銀行振込に対応予定。詳細はLINEでご案内します。</p></details>
+      <details><summary>9. 学生割引やチーム向けプランはありますか？</summary><p>あります。条件や料金は時期により異なるため、LINEでお問い合わせください。</p></details>
+      <details><summary>10. LINEが苦手です。別の手段はありますか？</summary><p>メールやフォーム、スプレッドシート等の代替をご提案できます。</p></details>
+      <details><summary>11. どのくらいで成果が出ますか？</summary><p>個人差がありますが、2〜4週間で習慣の手応え、1〜3か月で体感の変化が出やすい傾向です。</p></details>
+      <details><summary>12. キャンペーンやクーポンはどこで確認できますか？</summary><p>公式LINEで配布しています。最新情報は友だち追加後のメッセージをご確認ください。</p></details>
+    </div>
+
+    <div class="cta" style="margin-top:18px; justify-content:center;">
+      <a class="btn btn-primary" href="https://lin.ee/Grn0zNX" target="_blank" rel="noopener">LINEで無料相談</a>
+    </div>
   </section>
 
   <!-- 運営者情報 -->
