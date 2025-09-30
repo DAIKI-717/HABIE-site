@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Habie　Life | あなたに寄り添い、“できること”を少しずつ。</title>
+  <title>Habie Life | あなたに寄り添い,“できること”を少しずつ。</title>
   <meta name="description" content="Habie（Habie Life）は、写真を送るだけで毎日の小さな一歩を可視化する健康習慣サポート。LINEで完結、無理なく続けられる新しい習慣づくり。" />
   <meta property="og:title" content="Habie Life | あなたに寄り添い,“できること”を少しずつ。" />
   <meta property="og:description" content="写真を送るだけで、食事と生活の『今日の一歩』を一緒に整えます。LINEで完結。" />
@@ -54,6 +54,9 @@
 
     section{padding:64px 0}
     .section-title{font-size:28px;font-weight:800;margin:0 0 20px}
+    /* タイトルをリンクにしたときの軽い視覚効果 */
+    .section-title a{border-bottom:1px dashed transparent;transition:border-color .15s ease,opacity .15s ease}
+    .section-title a:hover{border-color:#d0d5dd;opacity:.9}
 
     /* 1週間プラン（wk-） */
     .wk-wrap{max-width:1200px;margin:0 auto;padding:64px 24px}
@@ -447,9 +450,9 @@
     <p class="muted" style="font-size:14px;">※ お問い合わせ用に記載しています。</p>
   </section>
 
-  <!-- プライバシーポリシー（折りたたみ） -->
+  <!-- プライバシーポリシー（折りたたみ+タイトルは別ページリンク） -->
   <section id="privacy" class="container" aria-label="プライバシーポリシー">
-    <h2 class="section-title">プライバシーポリシー</h2>
+    <h2 class="section-title"><a href="/privacy.html">プライバシーポリシー</a></h2>
     <div class="card" style="line-height:1.9;">
       <p>本サービス（HabieLife、以下「ハビー」といいます）を運営するHabie運営事務局（以下「当事務局」）は、利用者の個人情報を以下の方針で適切に取り扱います。</p>
 
@@ -498,9 +501,9 @@
     </div>
   </section>
 
-  <!-- 利用規約（折りたたみ） -->
+  <!-- 利用規約（折りたたみ+タイトルは別ページリンク） -->
   <section id="terms" class="container" aria-label="利用規約">
-    <h2 class="section-title">利用規約</h2>
+    <h2 class="section-title"><a href="/terms.html">利用規約</a></h2>
     <div class="card" style="line-height:1.9;">
       <p>この利用規約（以下「本規約」）は、<strong>本サービス（HabieLife、以下「ハビー」といいます）</strong>を運営するHabie運営事務局（以下「当事務局」）が提供するサービスの利用条件を定めるものです。利用者は本規約に同意のうえご利用ください。</p>
 
