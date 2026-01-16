@@ -1,916 +1,556 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="https://mgx-backend-cdn.metadl.com/generate/images/888019/2026-01-07/147cba5e-7e04-40a8-9393-7a7b91d4add6.png" type="image/png">
-  <title>Habie Life - AIがあなたの&quot;次の一手&quot;を明確にする健康サポート</title>
-  <meta name="description" content="Habie LifeはLINE完結型のAI健康サポートサービス。食事・行動・運動データを分析し、あなたにとって次に何をすればいいかを明確にします。月額9,850円で日常的にサポート。" />
-  <meta name="author" content="Habie Life" />
-
-  <meta property="og:title" content="Habie Life - AIがあなたの&quot;次の一手&quot;を明確にする健康サポート" />
-  <meta property="og:description" content="LINE完結型のAI健康サポートサービス。頑張らなくていい、迷わなくていい、次の一手がわかる。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://mgx-backend-cdn.metadl.com/generate/images/888019/2026-01-07/61b791ef-6230-46b4-891e-5ce07a44a5ba.png" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habie Life | AIが、あなたの健康と成長をデータで設計する</title>
+  <meta name="description" content="食事の記録、分析、献立提案、行動変容のサポートまで。AIによる365日の健康コーチング。今なら入会金¥39,800が永年無料。" />
+  <style>
+    :root{--green:#2fbf71;--orange:#ff8a34;--ink:#1a1a1a;--bg:#ffffff;--muted:#667085;--line:#e5e7eb;--accent:#fef3c7}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,sans-serif;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    .site-header{padding:18px 0;display:flex;align-items:center;justify-content:space-between;border:none}
+    .brand{font-weight:800;font-size:24px;text-decoration:none}
+    .nav{display:flex;gap:20px;align-items:center}
+    .nav a{padding:8px 12px;border-radius:8px;font-weight:600;font-size:15px}
+    .nav a:hover{background:#f6f7f8}
+    .nav .btn-line{background:var(--green);color:#fff;padding:10px 18px}
+    .campaign-banner{background:linear-gradient(135deg,#fef3c7,#fde68a);padding:14px 0;text-align:center;font-weight:700;border-bottom:2px solid #fbbf24}
+    .hero{padding:72px 0 80px;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+    h1{margin:0 0 16px;font-size:48px;line-height:1.15;font-weight:900}
+    h1 .highlight{color:var(--green)}
+    .sub{color:var(--muted);font-size:19px;margin:0 0 32px}
+    .btn{padding:16px 24px;border-radius:10px;font-weight:700;border:2px solid transparent;transition:all .2s;display:inline-flex;align-items:center;gap:10px}
+    .btn-primary{background:var(--green);color:#fff}
+    .btn-primary:hover{filter:brightness(0.92)}
+    .btn-secondary{background:#fff;color:var(--ink);border-color:#d0d5dd}
+    .shot{aspect-ratio:4/3;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+    .shot img{width:100%;height:100%;object-fit:cover}
+    section{padding:80px 0}
+    .section-title{font-size:36px;font-weight:900;margin:0 0 16px;text-align:center}
+    .section-sub{text-align:center;color:var(--muted);font-size:18px;margin:0 0 48px}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+    .feature-card{background:#fff;border:2px solid var(--line);border-radius:16px;padding:32px;text-align:center}
+    .feature-icon{font-size:48px;margin-bottom:16px}
+    .feature-card h3{font-size:20px;font-weight:800;margin:0 0 12px}
+    .plans-wrapper{background:linear-gradient(180deg,#f9fafb,#fff);padding:80px 0}
+    .plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1140px;margin:0 auto}
+    .plan-card{background:#fff;border:2px solid var(--line);border-radius:20px;padding:36px;position:relative}
+    .plan-hot{border:3px solid var(--green);background:linear-gradient(180deg,#f8fdfb,#fff)}
+    .plan-badge{position:absolute;top:-12px;right:24px;background:var(--orange);color:#fff;padding:6px 16px;border-radius:999px;font-size:13px;font-weight:800}
+    .plan-name{font-size:24px;font-weight:900;margin:0 0 8px}
+    .plan-price{font-size:42px;font-weight:900;color:var(--green);margin:4px 0}
+    .plan-features{list-style:none;padding:0;margin:24px 0;text-align:left}
+    .plan-features li{padding:10px 0;display:flex;gap:10px;border-bottom:1px solid #f1f5f9}
+    .plan-cta{width:100%;margin-top:24px}
+    .campaign-section{background:linear-gradient(135deg,#fef3c7,#fbbf24);padding:60px 24px;text-align:center}
+    .campaign-box{max-width:800px;margin:0 auto;background:#fff;border-radius:20px;padding:48px 40px}
+    details{border:2px solid var(--line);border-radius:14px;padding:18px 20px;background:#fff;margin-bottom:14px}
+    summary{font-weight:700;cursor:pointer}
+    .collapsible-content{max-height:0;overflow:hidden;transition:max-height .5s}
+    .collapsible-content.open{max-height:5000px}
+    .toggle-btn{display:inline-flex;gap:8px;padding:14px 28px;background:var(--green);color:#fff;border:none;border-radius:10px;font-weight:700;cursor:pointer;margin-top:20px}
+    .toggle-btn .icon{transition:transform .3s}
+    .toggle-btn.active .icon{transform:rotate(180deg)}
+    footer{padding:48px 0 32px;border-top:1px solid var(--line);background:#f9fafb}
+    .footer-content{display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap;margin-bottom:32px}
+    .footer-col ul{list-style:none;padding:0;margin:0}
+    .hamburger{display:none;width:36px;height:28px;border:0;background:transparent;cursor:pointer}
+    .hamburger span{position:absolute;left:0;right:0;height:3px;background:var(--ink);border-radius:2px;transition:all .2s}
+    .mobile-drawer{position:fixed;top:0;right:0;height:100vh;width:85%;max-width:360px;background:#fff;transform:translateX(100%);transition:transform .3s;z-index:100;padding:24px}
+    .mobile-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+    .mobile-list a{display:block;padding:14px 12px;font-weight:700;border-radius:10px}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:90;opacity:0;pointer-events:none;transition:opacity .25s}
+    .mobile-open #mobileNav{transform:translateX(0)}
+    .mobile-open #overlay{opacity:1;pointer-events:auto}
+    .back-to-top{position:fixed;right:24px;bottom:24px;width:48px;height:48px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:all .3s;z-index:50}
+    .back-to-top.visible{opacity:1;pointer-events:auto}
+    @media (max-width:980px){.nav{display:none}.hamburger{display:block}.hero{grid-template-columns:1fr}.features-grid,.plans-grid{grid-template-columns:1fr}}
+    @media (max-width:768px){h1{font-size:30px}section{padding:56px 0}}
+  </style>
 </head>
-
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
-
-</html>
-src/index.css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  * {
-    @apply border-border;
-  }
+  <div class="campaign-banner">🎉  入会金¥39,800が無料キャンペーン実施中！</div>
   
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Noto Sans JP', sans-serif;
-  }
+  <header class="container site-header" style="border-bottom:none">
+    <a href="#top" class="brand">Habie Life</a>
+    <nav class="nav">
+      <a href="#features">特徴</a>
+      <a href="#plans">プラン</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://lin.ee/Rz2RlE3" target="_blank" class="btn-line">LINE無料相談</a>
+    </nav>
+    <button id="menuBtn" class="hamburger"><span></span><span></span><span></span></button>
+  </header>
 
-  html {
-    scroll-behavior: smooth;
-  }
-}
+  <nav id="mobileNav" class="mobile-drawer">
+    <ul class="mobile-list">
+      <li><a href="#top">トップ</a></li>
+      <li><a href="#features">特徴</a></li>
+      <li><a href="#plans">プラン</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#reviews">お客様の声</a></li>
+      <li><a href="https://lin.ee/Rz2RlE3" target="_blank">LINE相談</a></li>
+    </ul>
+  </nav>
+  <div id="overlay" class="overlay" hidden></div>
 
-/* Custom scrollbar styles */
-::-webkit-scrollbar {
-  width: 10px;
-}
+  <button class="back-to-top" id="backToTop">↑</button>
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #10B981;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #059669;
-}
-
-/* Firefox scrollbar */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #10B981 #f1f1f1;
-}
-src/pages/Index.tsx
-import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
-import ProblemSection from '@/components/ProblemSection';
-import SolutionSection from '@/components/SolutionSection';
-import FeaturesSection from '@/components/FeaturesSection';
-import HowItWorksSection from '@/components/HowItWorksSection';
-import PricingSection from '@/components/PricingSection';
-import FAQSection from '@/components/FAQSection';
-import CTASection from '@/components/CTASection';
-import Footer from '@/components/Footer';
-
-export default function Index() {
-  return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <HeroSection />
-      <ProblemSection />
-      <SolutionSection />
-      <FeaturesSection />
-      <HowItWorksSection />
-      <PricingSection />
-      <FAQSection />
-      <CTASection />
-      <Footer />
+  <section id="top" class="container hero">
+    <div>
+      <h1>AIが、あなたの<br><span class="highlight">健康と成長</span>を<br>データで設計する</h1>
+      <p class="sub">食事の記録、分析、献立提案、行動変容のサポートまで一貫して実現。365日、回数無制限でAIがあなたをサポートします。</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="https://lin.ee/Rz2RlE3" target="_blank">LINE無料相談を始める</a>
+        <a class="btn btn-secondary" href="#plans">料金プランを見る</a>
+      </div>
     </div>
-  );
-}
-src/components/Header.tsx
-import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+    <div class="shot">
+      <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800" alt="健康的な食事" />
+    </div>
+  </section>
 
-export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  <section id="features" class="container">
+    <h2 class="section-title">Habie Lifeの特徴</h2>
+    <p class="section-sub">人間では不可能なレベルのパーソナルサポートを提供</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>無制限AIコーチング</h3>
+        <p>365日、回数無制限でAIによる食事記録・相談・フィードバック。いつでもあなたに寄り添います。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>データで可視化</h3>
+        <p>週間から年間まで、あなたの行動変容と目標達成度をデータで細かく可視化。成長が見える喜びを。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🍽️</div>
+        <h3>パーソナル献立7日分</h3>
+        <p>あなた個人の目標に最適な献立と、無駄のない買い物リストを自動生成。献立の悩みから解放されます。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>行動要因の特定と改善</h3>
+        <p>ストレスや時間帯に紐づく「食の弱点」をAIが診断し、根本的な解決策と代替行動を提案します。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏃</div>
+        <h3>トレーニング連動</h3>
+        <p>運動記録と連携し、運動量に合わせた栄養補給を提案。ボディメイクを科学的にサポート。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏪</div>
+        <h3>外食・コンビニ最適化</h3>
+        <p>外出先での食事も最適な選択肢を提案。どんな場面でもあなたをサポートします。</p>
+      </div>
+    </div>
+  </section>
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  <section id="plans" class="plans-wrapper">
+    <div class="container">
+      <h2 class="section-title">料金プラン</h2>
+      <p class="section-sub">あなたのライフスタイルに合わせた3つのプラン</p>
+      <div class="plans-grid">
+        <article class="plan-card">
+          <h3 class="plan-name">🥇 パーソナルプラン</h3>
+          <p style="color:var(--muted);font-size:14px;margin:0 0 20px">個人の健康目標を持つ方（1名のみ）</p>
+          <p style="text-decoration:line-through;color:#94a3b8;font-size:16px;margin:0">通常 ¥19,800/月</p>
+          <p class="plan-price">¥7,980<span style="font-size:18px">/月</span></p>
+          <span style="background:var(--accent);color:#92400e;padding:8px 12px;border-radius:8px;font-size:13px;font-weight:700;display:inline-block;margin:12px 0">永年キャンペーン価格</span>
+          <ul class="plan-features">
+            <li><span style="color:var(--green);font-weight:900">✓</span> 無制限AIコーチング</li>
+            <li><span style="color:var(--green);font-weight:900">✓</span> パーソナル献立7日分</li>
+            <li><span style="color:var(--green);font-weight:900">✓</span> 週間〜年間レポート</li>
+            <li><span style="color:var(--green);font-weight:900">✓</span> トレーニング連動提案</li>
+          </ul>
+          <a href="https://lin.ee/Rz2RlE3" target="_blank" class="btn btn-primary plan-cta">このプランを選ぶ</a>
+        </article>
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
-  };
+        <article class="plan-card plan-hot">
+          <span class="plan-badge">人気No.1</span>
+          <h3 class="plan-name">👫 パートナープラン</h3>
+          <p style="color:var(--muted);font-size:14px;margin:0 0 20px">夫婦・カップル・友人など（大人2名まで）＊親子でも対応できます</p>
+          <p style="text-decoration:line-through;color:#94a3b8;font-size:16px;margin:0">通常 ¥39,800/月</p>
+          <p class="plan-price">¥9,800<span style="font-size:18px">/月</span></p>
+          <span style="background:var(--accent);color:#92400e;padding:8px 12px;border-radius:8px;font-size:13px;font-weight:700;display:inline-block;margin:12px 0">永年キャンペーン価格</span>
+          <ul class="plan-features">
+            <li><span style="color:var(--green);font-weight:900">✓</span> パーソナルプランの全機能</li>
+            <li><span style="color:var(--green);font-weight:900">✓</span> 2名分のデータ分析</li>
+            <li><span style="color:var(--green);font-weight:900">✓</span> 2名の目標連動献立</li>
+            <li><span style="color:var(--green);font-weight:900">✓</span> 関係性改善の可視化</li>
+          </ul>
+          <a href="https://lin.ee/Rz2RlE3" target="_blank" class="btn btn-primary plan-cta">このプランを選ぶ</a>
+        </article>
 
-  return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <div className="flex items-center space-x-2 cursor-pointer" onClick={() => scrollToSection('hero')}>
-            <img
-              src="https://mgx-backend-cdn.metadl.com/generate/images/888019/2026-01-07/147cba5e-7e04-40a8-9393-7a7b91d4add6.png"
-              alt="Habie Life"
-              className="h-8 w-8 md:h-10 md:w-10"
-            />
-            <span className="text-xl md:text-2xl font-bold text-gray-900">Habie Life</span>
+        <article class="plan-card">
+          <h3 class="plan-name">👑 ファミリープラン</h3>
+          <p style="color:var(--muted);font-size:14px;margin:0 0 20px">家族全体の健康を願う方（全員対応）</p>
+          <p style="text-decoration:line-through;color:#94a3b8;font-size:16px;margin:0">通常 ¥49,800/月</p>
+          <p class="plan-price">¥14,800<span style="font-size:18px">/月</span></p>
+          <span style="background:var(--accent);color:#92400e;padding:8px 12px;border-radius:8px;font-size:13px;font-weight:700;display:inline-block;margin:12px 0">永年キャンペーン価格</span>
+          <ul class="plan-features">
+            <li><span style="color:var(--green);font-weight:900">✓</span> パートナープランの全機能</li>
+            <li><span style="color:var(--green);font-weight:900">✓</span> 家族全員分のデータ分析</li>
+            <li><span style="color:var(--green);font-weight:900">✓</span> 成長曲線連動レポート</li>
+            <li><span style="color:var(--green);font-weight:900">✓</span> 子育て世帯の食の悩み解決</li>
+          </ul>
+          <a href="https://lin.ee/Rz2RlE3" target="_blank" class="btn btn-primary plan-cta">このプランを選ぶ</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="campaign" class="campaign-section">
+    <div class="campaign-box">
+      <h2 style="font-size:32px;font-weight:900;margin:0 0 16px;color:#92400e">🎁 全国2000組限定キャンペーン</h2>
+      <p style="font-size:20px;margin:0 0 24px">今だけ、入会金<strong style="font-size:28px;color:#dc2626">¥39,800</strong>が<strong style="font-size:32px;color:var(--green)">永年無料</strong>！</p>
+      <div style="background:#fef3c7;border-left:4px solid #fbbf24;padding:16px 20px;border-radius:8px;margin:24px 0;text-align:left">
+        <strong style="color:#92400e">⚠ キャンペーン適用条件</strong>
+        <p style="margin:8px 0 0">ご契約から<strong>6ヶ月以内</strong>に解約された場合、入会金¥39,800をお支払いいただきます。6ヶ月以上継続された場合、入会金は永年無料となります。</p>
+      </div>
+      <a href="https://lin.ee/Rz2RlE3" target="_blank" class="btn btn-primary" style="margin-top:8px;font-size:18px;padding:18px 32px">今すぐLINEで無料相談</a>
+    </div>
+  </section>
+
+  <section id="faq" class="container">
+    <h2 class="section-title">よくある質問</h2>
+    <p class="section-sub">お客様からよくいただくご質問</p>
+    
+    <details>
+      <summary>どのように始めればいいですか？</summary>
+      <p>LINEで友だち追加していただき、簡単な質問に答えるだけで開始できます。プラン選択から食事記録まで、すべてLINE上で完結します。</p>
+    </details>
+
+    <details>
+      <summary>本当に無制限でAIに相談できますか？</summary>
+      <p>はい。365日、何度でも食事の写真を送ったり、質問したりできます。回数制限は一切ありません。</p>
+    </details>
+
+    <div id="faq-more" class="collapsible-content">
+      <details>
+        <summary>パートナープランとファミリープランの違いは？</summary>
+        <p>パートナープランは大人2名まで、ファミリープランは大人2名＋お子様を含む家族全員が対象です。ファミリープランでは子どもの成長曲線に連動したレポートなど、子育て世帯向けの機能が充実しています。</p>
+      </details>
+
+      <details>
+        <summary>キャンペーンの「6ヶ月条件」について詳しく教えてください</summary>
+        <p>入会金¥39,800が無料になるキャンペーンですが、契約から6ヶ月以内に解約された場合のみ、入会金をお支払いいただきます。6ヶ月以上ご継続いただければ、入会金は無料となります。</p>
+      </details>
+
+      <details>
+        <summary>どのくらいで効果が出ますか？</summary>
+        <p>個人差はありますが、多くの方が1〜2週間で小さな変化を、1〜3ヶ月で大きな成果を実感されています。AIが継続的にサポートするので、無理なく習慣化できます。</p>
+      </details>
+
+      <details>
+        <summary>解約方法を教えてください</summary>
+        <p>LINEのトーク画面からいつでも解約手続きができます。解約金などは発生しません（ただし6ヶ月以内の解約の場合、キャンペーン適用条件により入会金が発生します）。</p>
+      </details>
+
+      <details>
+        <summary>AIはどこまで正確ですか？人間の栄養士との違いは？</summary>
+        <p>Habie LifeのAIは、最新の栄養学・行動科学・心理学データを統合した専門モデルを使用しています。人間の栄養士と違い、AIはあなたの生活リズム・食事傾向・感情の変化までを24時間リアルタイムで学習し、「最適な提案」をその都度アップデートしていきます。</p>
+        <p>つまり、AIの強みは<strong>"精密さと継続性"</strong>にあります。人間では難しい細かな変化の追跡や、食事・睡眠・気分などのデータを同時に分析することが可能です。</p>
+        <p>ただし、<strong>「人に話を聞いてもらいたい」「気持ちを整理したい」</strong>ときもありますよね。そうした場合は、Zoom相談オプションのご利用をおすすめしています。AIで日常を支え、人間の専門家が心と体を深くサポートする——その両輪で、Habie Lifeはあなたの健康をより確実に導きます。</p>
+      </details>
+
+      <details>
+        <summary>家族それぞれ違う時間に食事する場合も対応できますか？</summary>
+        <p>はい、対応しています。家族一人ひとりの食事時間や内容を別々に登録できるため、「父は夜遅く」「子どもは早め」など、バラバラでも問題ありません。</p>
+        <p>AIはそれぞれの生活リズムを学習し、個別にフィードバックを行う仕組みになっています。家族全員の健康を一つのアカウントでまとめて管理しながら、それぞれのペースを尊重できるのが特徴です。</p>
+      </details>
+
+      <details>
+        <summary>アレルギーや食べられないものがある場合は？</summary>
+        <p>もちろん対応しています。アレルギー食材や苦手なものをあらかじめ登録しておくことで、献立提案や食事アドバイスの中から自動的に除外されます。</p>
+        <p>さらに、代替できる食材（例：牛乳→豆乳、卵→豆腐）などを提案するため、安心してご利用いただけます。</p>
+      </details>
+
+      <details>
+        <summary>写真を撮り忘れた場合はどうすればいいですか？</summary>
+        <p>大丈夫です。写真がなくても、食べた内容を文章で簡単に入力すればAIが判断できます。「朝：パンとコーヒー」など短くても構いません。</p>
+        <p>もし1食分が抜けても、AIが全体のバランスを考えて次の食事で調整してくれるので安心です。写真とメニューを同時に送っていただくと精度が上がりますが、写真とテキストどちらか一方でも大丈夫です。</p>
+      </details>
+
+      <details>
+        <summary>家族のデータは混ざりませんか？</summary>
+        <p>混ざりません。家族全員が同じアカウントを使っていても、AIは食事写真や名前の情報から誰のデータか自動で識別します。</p>
+        <p>「今日は息子さんの記録ですね」など、それぞれを正しく認識して記録するため、安心してお使いいただけます。</p>
+      </details>
+
+  
+    </div>
+
+    <div style="text-align:center">
+      <button class="toggle-btn" data-target="faq-more">
+        <span class="text">続きを読む</span>
+        <span class="icon">▼</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="reviews" style="background:linear-gradient(180deg,#f8fdfb,#fff);padding:80px 24px;margin:80px 0">
+    <div class="container">
+      <h2 class="section-title">お客様の声</h2>
+      <p class="section-sub">実際にHabie Lifeを体験された方々のリアルな声</p>
+      
+      <div style="display:grid;gap:28px;max-width:1000px;margin:0 auto">
+        <div style="background:#fff;padding:32px;border-radius:16px;border:2px solid var(--line)">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+            <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#2fbf71,#1a9d5f);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:800">N</div>
+            <div>
+              <h3 style="margin:0;font-size:18px;font-weight:800">奈々さん（32歳・会社員）</h3>
+              <p style="margin:4px 0 0;color:var(--muted);font-size:14px"></p>
+            </div>
+          </div>
+          <p style="margin:0;color:#374151">仕事の疲れから外食やコンビニ食ばかりになっていて、体調も肌の調子も不安定でした。Habie Lifeを始めてからは、AIが毎日の食事を優しく見守ってくれるようで、まるで"管理栄養士さんがポケットにいる"ような感覚でした。1か月が終わる頃には、自然と「自分の体を大事にするリズム」ができていました。</p>
+        </div>
+
+        <div style="background:#fff;padding:32px;border-radius:16px;border:2px solid var(--line)">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+            <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#ff8a34,#e57320);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:800">S</div>
+            <div>
+              <h3 style="margin:0;font-size:18px;font-weight:800">翔太さん・彩さん（夫婦）</h3>
+              <p style="margin:4px 0 0;color:var(--muted);font-size:14px"></p>
+            </div>
+          </div>
+          <p style="margin:0;color:#374151">夫婦で健康診断の結果が気になり、何か一緒に始めたいと思って選びました。Habie Lifeはただの食事管理じゃなくて、コミュニケーションが増えるきっかけをくれました。一緒に頑張るって、こんなに心強いんだと実感しました。</p>
+        </div>
+
+        <div id="reviews-more" class="collapsible-content">
+          <div style="background:#fff;padding:32px;border-radius:16px;border:2px solid var(--line)">
+            <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+              <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#7c3aed);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:800">M</div>
+              <div>
+                <h3 style="margin:0;font-size:18px;font-weight:800">美穂さん（40歳・主婦）</h3>
+                <p style="margin:4px 0 0;color:var(--muted);font-size:14px"></p>
+              </div>
+            </div>
+            <p style="margin:0;color:#374151">子どもの偏食に悩んでいて、家族のごはん作りがプレッシャーでした。特に印象的だったのは、AIが"ほめてくれる"こと。「お母さんの選択が、お子さんの集中力を支えてますね」と言われたとき、涙が出るほど嬉しかったです。</p>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection('features')}
-              className="text-gray-700 hover:text-emerald-600 font-medium transition-colors"
-            >
-              特徴
-            </button>
-            <button
-              onClick={() => scrollToSection('how-it-works')}
-              className="text-gray-700 hover:text-emerald-600 font-medium transition-colors"
-            >
-              使い方
-            </button>
-            <button
-              onClick={() => scrollToSection('pricing')}
-              className="text-gray-700 hover:text-emerald-600 font-medium transition-colors"
-            >
-              料金
-            </button>
-            <button
-              onClick={() => scrollToSection('faq')}
-              className="text-gray-700 hover:text-emerald-600 font-medium transition-colors"
-            >
-              FAQ
-            </button>
-            <Button
-              onClick={() => scrollToSection('cta')}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold"
-            >
-              LINE登録はこちら
-            </Button>
-          </nav>
+          <div style="background:#fff;padding:32px;border-radius:16px;border:2px solid var(--line);margin-top:28px">
+            <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+              <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#2563eb);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:800">R</div>
+              <div>
+                <h3 style="margin:0;font-size:18px;font-weight:800">亮さん（21歳・大学生）</h3>
+                <p style="margin:4px 0 0;color:var(--muted);font-size:14px"></p>
+              </div>
+            </div>
+            <p style="margin:0;color:#374151">トレーニングの量が増えて食事管理が難しくなっていました。いつの間にか「食べる＝整える」って意識に変わっていて、栄養を"頑張るための味方"として見られるようになったのが大きな収穫です。</p>
+          </div>
+        </div>
+      </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-gray-700" />
-            ) : (
-              <Menu className="h-6 w-6 text-gray-700" />
-            )}
+      <div style="text-align:center;margin-top:28px">
+        <button class="toggle-btn" data-target="reviews-more">
+          <span class="text">続きを読む</span>
+          <span class="icon">▼</span>
+        </button>
+      </div>
+
+      <p style="text-align:center;margin:32px 0 0;color:var(--muted);font-size:14px">※ お名前はプライバシー保護のため仮名を使用しています</p>
+    </div>
+  </section>
+
+  <section id="contact" class="container">
+    <h2 class="section-title">お問い合わせ</h2>
+    <div style="max-width:600px;margin:0 auto;text-align:center;padding:40px;background:#f9fafb;border-radius:16px">
+      <p style="font-size:18px;margin:0 0 24px">ご質問やご相談がございましたら、お気軽にLINEまたはメールでお問い合わせください。</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:24px">
+        <a href="https://lin.ee/Rz2RlE3" target="_blank" class="btn btn-primary">LINEで相談</a>
+        <a href="mailto:habie.goolife@gmail.com" class="btn btn-secondary">メールで相談</a>
+      </div>
+      <p style="color:var(--muted);font-size:14px;margin:0">運営：Habie Life運営事務局<br>メール：habie.goolife@gmail.com</p>
+    </div>
+  </section>
+
+  <section id="privacy" style="background:#f9fafb;padding:80px 24px;margin-top:80px">
+    <div class="container" style="max-width:900px">
+      <h2 class="section-title" style="text-align:left">プライバシーポリシー</h2>
+      <div style="background:#fff;padding:40px;border-radius:16px;border:1px solid var(--line)">
+        <p>本サービス（HabieLife、以下「ハビー」といいます）を運営するHabie運営事務局（以下「当事務局」）は、利用者の個人情報を以下の方針で適切に取り扱います。</p>
+
+        <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">1. 取得する情報</h3>
+        <ul style="line-height:1.8">
+          <li>LINEで送信される画像・テキスト・スタンプ等のメッセージ内容</li>
+          <li>ニックネーム、LINEユーザーID等の識別子</li>
+          <li>任意にご提供いただく情報（メールアドレス、アンケート回答等）</li>
+        </ul>
+
+        <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">2. 利用目的</h3>
+        <ul style="line-height:1.8">
+          <li>食事・生活習慣に関する分析、フィードバックの提供</li>
+          <li>ご質問対応、各種ご連絡、重要なお知らせの配信</li>
+          <li>サービス改善・品質向上のための分析（統計的データの作成を含む）</li>
+        </ul>
+
+        <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">3. 第三者提供・共同利用</h3>
+        <p>法令に基づく場合を除き、本人の同意なく第三者に提供しません。業務委託先（LINE、決済・保管事業者等）には目的達成に必要な範囲で委託し、適切に管理・監督します。</p>
+
+        <div id="privacy-more" class="collapsible-content">
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">4. 安全管理</h3>
+          <p>アクセス制限・暗号化等の安全管理措置を講じ、漏えい・滅失・毀損を防止します。</p>
+
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">5. 保存期間</h3>
+          <p>利用目的の達成に必要な期間保存し、不要となった情報は適切な方法で削除します。</p>
+
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">6. ユーザーの権利</h3>
+          <p>保有個人データの開示・訂正・利用停止・削除等のご請求は下記窓口まで。法令に基づき適切に対応します。</p>
+
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">7. 外部サービスの利用</h3>
+          <p>本サービスはLINEプラットフォームおよび決済事業者等の外部サービスを利用します。各事業者のポリシーもご確認ください。</p>
+
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">8. クッキー等</h3>
+          <p>本サイトでは体験向上のためクッキー等を使用する場合があります。ブラウザ設定で無効化できます。</p>
+
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">9. 改定</h3>
+          <p>法令改正やサービス変更に応じて本ポリシーを改定します。重要な変更は本サイトで告知します。</p>
+
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">10. お問い合わせ窓口</h3>
+          <p>Habie運営事務局　/　メール：<a href="mailto:habie.goolife@gmail.com" style="color:var(--green);font-weight:700">habie.goolife@gmail.com</a></p>
+          <p style="color:var(--muted);font-size:14px;margin:16px 0 0">施行日：2025-09-22（初版）</p>
+        </div>
+
+        <div style="text-align:center;margin-top:24px">
+          <button class="toggle-btn" data-target="privacy-more">
+            <span class="text">続きを読む</span>
+            <span class="icon">▼</span>
           </button>
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
-            <nav className="flex flex-col space-y-4">
-              <button
-                onClick={() => scrollToSection('features')}
-                className="text-left text-gray-700 hover:text-emerald-600 font-medium transition-colors"
-              >
-                特徴
-              </button>
-              <button
-                onClick={() => scrollToSection('how-it-works')}
-                className="text-left text-gray-700 hover:text-emerald-600 font-medium transition-colors"
-              >
-                使い方
-              </button>
-              <button
-                onClick={() => scrollToSection('pricing')}
-                className="text-left text-gray-700 hover:text-emerald-600 font-medium transition-colors"
-              >
-                料金
-              </button>
-              <button
-                onClick={() => scrollToSection('faq')}
-                className="text-left text-gray-700 hover:text-emerald-600 font-medium transition-colors"
-              >
-                FAQ
-              </button>
-              <Button
-                onClick={() => scrollToSection('cta')}
-                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold w-full"
-              >
-                LINE登録はこちら
-              </Button>
-            </nav>
-          </div>
-        )}
       </div>
-    </header>
-  );
-}
-src/components/HeroSection.tsx
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+    </div>
+  </section>
 
-export default function HeroSection() {
-  const scrollToCTA = () => {
-    const element = document.getElementById('cta');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  <section id="terms" class="container">
+    <div style="max-width:900px;margin:0 auto">
+      <h2 class="section-title" style="text-align:left">利用規約</h2>
+      <div style="background:#fff;padding:40px;border-radius:16px;border:1px solid var(--line)">
+        <p>この利用規約（以下「本規約」）は、<strong>本サービス（HabieLife、以下「ハビー」といいます）</strong>を運営するHabie運営事務局（以下「当事務局」）が提供するサービスの利用条件を定めるものです。利用者は本規約に同意のうえご利用ください。</p>
 
-  return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-50 via-white to-green-50 pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8 animate-in fade-in slide-in-from-left duration-700">
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                AIがあなたの<br />
-                <span className="text-emerald-600">"次の一手"</span>を<br />
-                明確にする
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-                食事・行動・運動データを分析し、<br />
-                あなたにとって何をすればいいかを提案する<br />
-                LINE完結型の健康サポートサービス
-              </p>
-            </div>
+        <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">1. 本サービスの内容</h3>
+        <p>LINE等を通じた食事・生活習慣の記録、分析、アドバイス、各種通知の提供。</p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                onClick={scrollToCTA}
-                size="lg"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
-              >
-                無料で始める
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                onClick={() => {
-                  const element = document.getElementById('features');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
-                size="lg"
-                variant="outline"
-                className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 font-bold text-lg px-8 py-6"
-              >
-                詳しく見る
-              </Button>
-            </div>
+        <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">2. アカウントと本人確認</h3>
+        <p>利用者は正確な情報を登録し、不正利用の疑いがある場合は利用停止等の措置を講じます。</p>
 
-            <div className="flex items-center space-x-8 text-sm text-gray-600">
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-emerald-600 rounded-full"></div>
-                <span>LINE完結</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-emerald-600 rounded-full"></div>
-                <span>AI分析</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-emerald-600 rounded-full"></div>
-                <span>継続サポート</span>
-              </div>
-            </div>
-          </div>
+        <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">3. 禁止事項</h3>
+        <ul style="line-height:1.8">
+          <li>法令や公序良俗に反する行為、第三者の権利侵害</li>
+          <li>当事務局または他者の運営を妨げる行為</li>
+          <li>虚偽情報の提供、不正アクセス、スパム行為</li>
+        </ul>
 
-          {/* Right Image */}
-          <div className="relative animate-in fade-in slide-in-from-right duration-700 delay-300">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://mgx-backend-cdn.metadl.com/generate/images/888019/2026-01-07/61b791ef-6230-46b4-891e-5ce07a44a5ba.png"
-                alt="AI健康分析"
-                className="w-full h-auto"
-              />
-            </div>
-            {/* Floating Elements */}
-            <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg p-4 animate-bounce">
-              <p className="text-sm font-bold text-emerald-600">AI分析中...</p>
-            </div>
-            <div className="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-lg p-4">
-              <p className="text-xs text-gray-600">次の一手が見つかりました</p>
-            </div>
-          </div>
+        <div id="terms-more" class="collapsible-content">
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">4. 料金・決済・解約</h3>
+          <ul style="line-height:1.8">
+            <li>料金はサイト表示のとおり。クレジットカード/銀行振込等の決済事業者を利用する場合があります。</li>
+            <li>解約は月単位で可能。決済・返金条件は各プラン表示および決済事業者の規約に準じます。</li>
+          </ul>
+
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">5. 知的財産</h3>
+          <p>本サービスに関する一切の知的財産権は当事務局または権利者に帰属します。無断転載・複製を禁じます。</p>
+
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">6. 免責</h3>
+          <p>当事務局は、提供情報の正確性や完全性を保証しません。利用により生じた損害について、当事務局に故意・重過失がある場合を除き、直接かつ通常の損害の範囲での責任に限ります。</p>
+
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">7. サービスの変更・停止</h3>
+          <p>当事務局は、事前通知のうえサービス内容の変更・中断・終了を行うことがあります。</p>
+
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">8. 規約の変更</h3>
+          <p>当事務局は必要に応じて本規約を改定します。変更後の規約は本サイトでの掲示時に効力を生じます。</p>
+
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">9. 準拠法・裁判管轄</h3>
+          <p>本規約は日本法に準拠し、紛争は当事務局所在地を管轄する裁判所を第一審の専属的合意管轄とします。</p>
+
+          <h3 style="font-size:20px;font-weight:800;margin:32px 0 16px">10. 連絡先</h3>
+          <p>Habie運営事務局　/　メール：<a href="mailto:habie.goolife@gmail.com" style="color:var(--green);font-weight:700">habie.goolife@gmail.com</a></p>
+          <p style="color:var(--muted);font-size:14px;margin:16px 0 0">施行日：2025-09-22（初版）</p>
+        </div>
+
+        <div style="text-align:center;margin-top:24px">
+          <button class="toggle-btn" data-target="terms-more">
+            <span class="text">続きを読む</span>
+            <span class="icon">▼</span>
+          </button>
         </div>
       </div>
-    </section>
-  );
-}
-src/components/ProblemSection.tsx
-import { AlertCircle } from 'lucide-react';
+    </div>
+  </section>
 
-export default function ProblemSection() {
-  const problems = [
-    '健康や食生活に関心はあるけど、管理が続かない',
-    '毎回何を食べればいいか考えるのが面倒',
-    '運動はしているけど、食事が最適化できていない',
-    '外食やコンビニが多くて、栄養バランスが心配',
-    '正解を押し付けられたくない、でも迷いたくない',
-    'できていない自分を責めたくない',
-  ];
-
-  return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full mb-4">
-            <AlertCircle className="w-8 h-8 text-gray-600" />
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            こんなお悩み、ありませんか?
-          </h2>
-          <p className="text-lg text-gray-600">
-            健康は大事だけど、時間がない。楽に、でもちゃんと整えたい。
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {problems.map((problem, index) => (
-            <div
-              key={index}
-              className="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:border-emerald-300 hover:shadow-md transition-all"
-            >
-              <div className="flex items-start space-x-3">
-                <div className="w-2 h-2 bg-emerald-600 rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-gray-700 leading-relaxed">{problem}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+  <section id="legal" style="background:#f9fafb;padding:80px 24px;margin-top:0">
+    <div class="container" style="max-width:900px">
+      <h2 class="section-title" style="text-align:left">特定商取引法に基づく表記</h2>
+      <div style="background:#fff;padding:40px;border-radius:16px;border:1px solid var(--line)">
+        <div style="margin-bottom:28px"><h3 style="font-size:18px;font-weight:800;margin:0 0 8px">事業者名</h3><p style="margin:0">Habie Life</p></div>
+        <div style="margin-bottom:28px"><h3 style="font-size:18px;font-weight:800;margin:0 0 8px">所在地</h3><p style="margin:0">東京都杉並区桃井</p></div>
+        <div style="margin-bottom:28px"><h3 style="font-size:18px;font-weight:800;margin:0 0 8px">お問い合わせ</h3><p style="margin:0">メール：<a href="mailto:habie.goolife@gmail.com" style="color:var(--green);font-weight:700">habie.goolife@gmail.com</a></p></div>
+        <div style="margin-bottom:28px"><h3 style="font-size:18px;font-weight:800;margin:0 0 8px">販売価格</h3><p style="margin:0">パーソナル：¥7,980/月、パートナー：¥9,800/月、ファミリー：¥14,800/月（税込）</p></div>
+        <div style="margin-bottom:28px"><h3 style="font-size:18px;font-weight:800;margin:0 0 8px">支払方法</h3><p style="margin:0">クレジットカード、銀行振込</p></div>
+        <div><h3 style="font-size:18px;font-weight:800;margin:0 0 8px">返品・解約</h3><p style="margin:0;background:#fef3c7;padding:16px;border-radius:8px">6ヶ月以内の解約の場合、入会金¥39,800をお支払いいただきます。お支払い済みの月額料金の返金は原則として行いません。</p></div>
       </div>
-    </section>
-  );
-}
-src/components/SolutionSection.tsx
-import { Sparkles, CheckCircle2 } from 'lucide-react';
+    </div>
+  </section>
 
-export default function SolutionSection() {
-  const values = [
-    {
-      title: '頑張らなくていい',
-      description: '無理な目標設定や厳しい制限はありません。今のあなたに合った提案をします。',
-    },
-    {
-      title: '迷わなくていい',
-      description: '「次に何をすればいいか」が明確になるから、選択に悩む時間が減ります。',
-    },
-    {
-      title: '次の一手がわかる',
-      description: 'AIがデータを分析し、あなたの状況に応じた具体的な行動を提案します。',
-    },
-  ];
-
-  return (
-    <section className="py-20 bg-gradient-to-br from-emerald-50 to-green-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-4">
-            <Sparkles className="w-8 h-8 text-emerald-600" />
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Habie Lifeが提供する価値
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            栄養指導ではなく、<span className="font-bold text-emerald-600">日常の選択を楽にするAIの判断補助</span>です。<br />
-            あなたの食事・行動・運動データをAIが分析し、次に何をすればいいかを明確にします。
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {values.map((value, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all border border-gray-100"
-            >
-              <div className="flex items-center space-x-2 mb-4">
-                <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0" />
-                <h3 className="text-xl font-bold text-gray-900">{value.title}</h3>
-              </div>
-              <p className="text-gray-600 leading-relaxed">{value.description}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <div className="inline-block bg-white rounded-xl p-6 shadow-md max-w-2xl">
-            <p className="text-gray-700 leading-relaxed">
-              <span className="font-bold text-emerald-600">考える負担を減らし</span>、
-              日々の健康管理を<span className="font-bold">自然に続けられる</span>ようサポートします。
-            </p>
-          </div>
-        </div>
+  <footer class="container">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4 style="font-weight:800;margin:0 0 16px">Habie Life</h4>
+        <p style="color:var(--muted);margin:0">AIが、あなたの健康と成長をデータで設計する</p>
       </div>
-    </section>
-  );
-}
-src/components/FeaturesSection.tsx
-import { Camera, Calendar, Activity, Store, Brain } from 'lucide-react';
-
-export default function FeaturesSection() {
-  const features = [
-    {
-      icon: Camera,
-      title: '食事写真・メニューのAI分析',
-      description: '写真やテキストを送るだけで、AIが栄養バランスを分析。良い点と改善できる点、次に活かすための具体的提案を受け取れます。',
-      image: 'https://mgx-backend-cdn.metadl.com/generate/images/888019/2026-01-07/cf081fd2-b0d7-4772-84f6-d8bcc2706028.png',
-    },
-    {
-      icon: Calendar,
-      title: '献立提案と買い物リスト生成',
-      description: '数日〜1週間単位の献立をAIが提案。買い物リストも自動生成されるので、考える負担が大幅に減ります。',
-      image: 'https://mgx-backend-cdn.metadl.com/generate/images/888019/2026-01-07/8a8bf83b-a016-4542-b368-5ef7e8710353.png',
-    },
-    {
-      icon: Activity,
-      title: '運動量に合わせた食事設計',
-      description: 'トレーニング日と休養日で異なる食事の考え方を提案。運動効果を最大化するための栄養戦略をサポートします。',
-      image: 'https://mgx-backend-cdn.metadl.com/generate/images/888019/2026-01-07/7945ca75-4619-4311-9891-595e9747fba5.png',
-    },
-    {
-      icon: Store,
-      title: '外食・コンビニでの最適化',
-      description: '外食やコンビニ利用が多い方でも大丈夫。「何を選べばいいか」を具体的に提案し、日常の選択をサポートします。',
-      image: 'https://mgx-backend-cdn.metadl.com/generate/images/888019/2026-01-07/f2cbd3d5-885d-4998-9b07-2786fe319822.png',
-    },
-    {
-      icon: Brain,
-      title: '行動要因の特定と改善提案',
-      description: '食生活が乱れる原因をAIが分析。根本要因を整理し、実行可能な代替行動を提示します。',
-      image: 'https://mgx-backend-cdn.metadl.com/generate/images/888019/2026-01-07/39fe4e59-3ab1-4a36-84c8-65ba37539b18.png',
-    },
-  ];
-
-  return (
-    <section id="features" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            できること
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            AIを活用して、あなたの健康管理を総合的にサポートします
-          </p>
-        </div>
-
-        <div className="space-y-16">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`grid lg:grid-cols-2 gap-8 items-center ${
-                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              }`}
-            >
-              <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-emerald-100 rounded-xl">
-                  <feature.icon className="w-7 h-7 text-emerald-600" />
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                  {feature.title}
-                </h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-              <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                <div className="rounded-2xl overflow-hidden shadow-lg">
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div class="footer-col">
+        <h4 style="font-weight:800;margin:0 0 16px">サービス</h4>
+        <ul><li><a href="#features">特徴</a></li><li><a href="#plans">プラン</a></li></ul>
       </div>
-    </section>
-  );
-}
-src/components/HowItWorksSection.tsx
-import { MessageSquare, Sparkles, CheckCircle2, Repeat } from 'lucide-react';
-
-export default function HowItWorksSection() {
-  const steps = [
-    {
-      icon: MessageSquare,
-      title: 'LINEで友だち追加',
-      description: 'Habie Life公式アカウントを友だち追加するだけ。難しい設定は一切不要です。',
-    },
-    {
-      icon: Sparkles,
-      title: '写真やテキストを送信',
-      description: '食事の写真を撮って送る、またはメニュー名をテキストで送信。運動内容や体調も気軽に共有できます。',
-    },
-    {
-      icon: CheckCircle2,
-      title: 'AIが分析・提案',
-      description: 'AIがあなたのデータを分析し、具体的なアドバイスと次のアクションを提案します。',
-    },
-    {
-      icon: Repeat,
-      title: '継続的にサポート',
-      description: '日常的に使い続けることで、AIがあなたのパターンを学習し、より最適な提案を行います。',
-    },
-  ];
-
-  return (
-    <section id="how-it-works" className="py-20 bg-gradient-to-br from-emerald-50 to-green-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            使い方
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            LINEで完結。たった4ステップで始められます
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {steps.map((step, index) => (
-            <div key={index} className="relative">
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all h-full border border-gray-100">
-                <div className="flex flex-col items-center text-center space-y-4">
-                  <div className="relative">
-                    <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center">
-                      <step.icon className="w-8 h-8 text-emerald-600" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
-                      {index + 1}
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">{step.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
-                </div>
-              </div>
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                  <div className="w-8 h-0.5 bg-emerald-300"></div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-16 text-center">
-          <div className="inline-block bg-white rounded-xl p-8 shadow-lg max-w-3xl">
-            <div className="mb-4">
-              <img
-                src="https://mgx-backend-cdn.metadl.com/generate/images/888019/2026-01-07/ecf0c990-6f08-473e-87c9-4965e56b3819.png"
-                alt="LINE チャット画面"
-                className="w-full h-auto rounded-lg"
-              />
-            </div>
-            <p className="text-gray-700 leading-relaxed">
-              <span className="font-bold text-emerald-600">LINEで完結</span>するから、
-              新しいアプリをダウンロードする必要はありません。
-              普段使っているLINEで、気軽に健康管理を始められます。
-            </p>
-          </div>
-        </div>
+      <div class="footer-col">
+        <h4 style="font-weight:800;margin:0 0 16px">法的情報</h4>
+        <ul><li><a href="#privacy">プライバシー</a></li><li><a href="#terms">利用規約</a></li><li><a href="#legal">特商法表記</a></li></ul>
       </div>
-    </section>
-  );
-}
-src/components/PricingSection.tsx
-import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
+    </div>
+    <div style="text-align:center;padding-top:24px;border-top:1px solid var(--line);font-size:14px">
+      <p>© <span id="year"></span> Habie Life | 運営：Habie Life運営事務局</p>
+    </div>
+  </footer>
 
-export default function PricingSection() {
-  const features = [
-    'LINE完結型のAI健康サポート',
-    '食事写真・メニューのAI分析',
-    '献立提案と買い物リスト生成',
-    '運動量に合わせた食事設計',
-    '外食・コンビニでの最適化提案',
-    '行動要因の特定と改善提案',
-    '継続的なサポート',
-  ];
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // モバイルメニュー
+    const root = document.documentElement;
+    const btn = document.getElementById('menuBtn');
+    const nav = document.getElementById('mobileNav');
+    const overlay = document.getElementById('overlay');
+    btn.addEventListener('click', () => {
+      root.classList.toggle('mobile-open');
+      overlay.hidden = !root.classList.contains('mobile-open');
+    });
+    overlay.addEventListener('click', () => {
+      root.classList.remove('mobile-open');
+      overlay.hidden = true;
+    });
 
-  const scrollToCTA = () => {
-    const element = document.getElementById('cta');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+    // トップへ戻る
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 500);
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  return (
-    <section id="pricing" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            料金プラン
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            シンプルでわかりやすい、単一プラン
-          </p>
-        </div>
-
-        <div className="max-w-lg mx-auto">
-          <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-3xl p-8 md:p-12 shadow-xl border-2 border-emerald-200">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Habie Life スタンダードプラン
-              </h3>
-              <div className="flex items-end justify-center space-x-2">
-                <span className="text-5xl md:text-6xl font-bold text-emerald-600">
-                  ¥9,850
-                </span>
-                <span className="text-xl text-gray-600 pb-2">/月</span>
-              </div>
-              <p className="text-sm text-gray-600 mt-2">(税込)</p>
-            </div>
-
-            <div className="space-y-4 mb-8">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center mt-0.5">
-                    <Check className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-gray-700 leading-relaxed">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            <Button
-              onClick={scrollToCTA}
-              size="lg"
-              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg py-6 shadow-lg hover:shadow-xl transition-all"
-            >
-              今すぐ始める
-            </Button>
-
-            <p className="text-sm text-gray-600 text-center mt-6">
-              ※ 初月無料キャンペーン実施中
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            日常的に使える継続的なサポートで、あなたの健康管理をAIがお手伝いします。
-            複雑なプランはなく、シンプルでわかりやすい料金体系です。
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-src/components/FAQSection.tsx
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
-
-export default function FAQSection() {
-  const faqs = [
-    {
-      question: 'AIは何をしているのですか?',
-      answer:
-        'Habie LifeのAIは、あなたが送信した食事写真やテキスト、運動データなどを分析し、栄養バランスや生活パターンを評価します。その上で、あなたの状況に応じた具体的な改善提案や次のアクションを提示します。AIを活用することで、専門的な知識がなくても、日々の健康管理をサポートできる仕組みです。',
-    },
-    {
-      question: 'これは医療サービスですか?',
-      answer:
-        'いいえ、Habie Lifeは医療・診断サービスではありません。あくまで日常の健康管理をサポートするための情報提供サービスです。病気の診断や治療を目的としたものではなく、医師の診察や専門的な栄養指導の代わりになるものではありません。健康上の問題がある場合は、必ず医療機関を受診してください。',
-    },
-    {
-      question: 'どんな人に向いていますか?',
-      answer:
-        '健康や食生活に関心はあるけれど管理が続かない方、毎回何を食べればいいか考えるのが面倒な方、外食やコンビニ利用が多い方、運動はしているけど食事が最適化できていない方など、「考える負担を減らしたい」と感じている20代後半〜40代の方に特におすすめです。',
-    },
-    {
-      question: '写真がなくても使えますか?',
-      answer:
-        'はい、使えます。食事の写真を送るのが最も詳細な分析ができますが、メニュー名や食材をテキストで送信していただくだけでも分析・提案が可能です。あなたのライフスタイルに合わせて、柔軟にご利用いただけます。',
-    },
-    {
-      question: 'LINEだけで本当に完結しますか?',
-      answer:
-        'はい、完結します。専用アプリのダウンロードや複雑な設定は不要です。LINEで友だち追加をして、普段のトーク感覚で写真やテキストを送るだけで、AIからの分析結果や提案を受け取れます。',
-    },
-    {
-      question: '解約はいつでもできますか?',
-      answer:
-        'はい、いつでも解約可能です。解約手続きもLINE上で簡単に行えます。違約金や追加料金は一切発生しません。',
-    },
-    {
-      question: 'データのプライバシーは守られますか?',
-      answer:
-        'はい。お客様の個人情報や送信いただいたデータは、厳重に管理され、サービス提供以外の目的で使用されることはありません。プライバシーポリシーに基づき、適切に取り扱います。',
-    },
-    {
-      question: '栄養士や専門家のサポートはありますか?',
-      answer:
-        'Habie LifeはAIを活用した情報提供サービスです。人による個別の栄養指導や相談対応は含まれておりません。AIが分析・提案を行うことで、日常的な健康管理をサポートします。',
-    },
-  ];
-
-  return (
-    <section id="faq" className="py-20 bg-gradient-to-br from-emerald-50 to-green-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            よくある質問
-          </h2>
-          <p className="text-lg text-gray-600">
-            Habie Lifeについて、よくいただく質問にお答えします
-          </p>
-        </div>
-
-        <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="border border-gray-200 rounded-lg px-6"
-              >
-                <AccordionTrigger className="text-left font-bold text-gray-900 hover:text-emerald-600 py-4">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-gray-600 leading-relaxed pb-4">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      </div>
-    </section>
-  );
-}
-src/components/CTASection.tsx
-import { Button } from '@/components/ui/button';
-import { ArrowRight, MessageCircle } from 'lucide-react';
-
-export default function CTASection() {
-  return (
-    <section id="cta" className="py-20 bg-gradient-to-br from-emerald-600 to-green-700">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="space-y-8">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-4">
-            <MessageCircle className="w-10 h-10 text-white" />
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-            AIがあなたの"次の一手"を<br />
-            明確にします
-          </h2>
-
-          <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-            頑張らなくていい、迷わなくていい。<br />
-            LINEで始める、新しい健康サポート。
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button
-              size="lg"
-              className="bg-white text-emerald-600 hover:bg-gray-100 font-bold text-lg px-10 py-7 shadow-xl hover:shadow-2xl transition-all"
-              onClick={() => window.open('https://line.me/R/ti/p/@habielife', '_blank')}
-            >
-              LINE登録して始める
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
-
-          <p className="text-sm text-white/80">
-            ※ 初月無料キャンペーン実施中 | いつでも解約可能
-          </p>
-
-          <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-8 text-white/90">
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-white rounded-full"></div>
-              <span className="font-medium">LINE完結</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-white rounded-full"></div>
-              <span className="font-medium">月額9,850円</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-white rounded-full"></div>
-              <span className="font-medium">継続サポート</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-src/components/Footer.tsx
-export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="bg-gray-900 text-gray-300 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <img
-                src="https://mgx-backend-cdn.metadl.com/generate/images/888019/2026-01-07/147cba5e-7e04-40a8-9393-7a7b91d4add6.png"
-                alt="Habie Life"
-                className="h-8 w-8"
-              />
-              <span className="text-xl font-bold text-white">Habie Life</span>
-            </div>
-            <p className="text-sm leading-relaxed">
-              AIがあなたの"次の一手"を明確にする<br />
-              LINE完結型の健康サポートサービス
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-white font-bold mb-4">サービス</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#features" className="hover:text-emerald-400 transition-colors">
-                  特徴
-                </a>
-              </li>
-              <li>
-                <a href="#how-it-works" className="hover:text-emerald-400 transition-colors">
-                  使い方
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="hover:text-emerald-400 transition-colors">
-                  料金
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-emerald-400 transition-colors">
-                  FAQ
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="text-white font-bold mb-4">法的情報</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#" className="hover:text-emerald-400 transition-colors">
-                  利用規約
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-emerald-400 transition-colors">
-                  プライバシーポリシー
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-emerald-400 transition-colors">
-                  特定商取引法に基づく表記
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-emerald-400 transition-colors">
-                  お問い合わせ
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm">
-              © {currentYear} Habie Life. All rights reserved.
-            </p>
-            <p className="text-xs text-gray-500">
-              本サービスは医療・診断サービスではありません。健康上の問題がある場合は医療機関を受診してください。
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
+    // 開閉ボタン
+    document.querySelectorAll('.toggle-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const target = document.getElementById(this.getAttribute('data-target'));
+        const text = this.querySelector('.text');
+        target.classList.toggle('open');
+        this.classList.toggle('active');
+        text.textContent = target.classList.contains('open') ? '閉じる' : '続きを読む';
+      });
+    });
+  </script>
+</body>
+</html>
